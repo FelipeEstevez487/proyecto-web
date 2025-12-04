@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pictly</title>
+    <link rel="icon" type="image/x-icon" href="/IMG/icono/icono2.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Cardo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+
+    <!-- Roboto Condensed-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="estilos-index.css">
+</head>
+<body>
+    <header class="contenedor" aria-label="Encabezado principal">
+        <div class="contenedor__header">
+            <div class="contenedor__TiMa"  role="img" aria-label="Logotipo y título del sitio"  id="boton-inicio">        
+                <h1 class="contenedor__titulo">Pictly</h1>
+                <figure>
+                    <img class="contenedor__icono" src="IMG/icono/icono2.png" alt="Ícono de Pictly" aria-label="Ícono de Pictly">
+                </figure>
+            </div>
+        </div>
+        <div class="contenedor__content">
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
+        <ul class="nav__lista">
+            <li><a class="nav__vínculo" href="">Inicio</a></li>
+            <li>
+                <div class="Hamburguesa" aria-label="Menú de categorías">
+                    <input type="checkbox" id="menu-opciones">
+                    
+                    <label for="menu-opciones" class="opciones" aria-label="Abrir menú de categorías">
+                        Categorías
+                    </label>
+        
+                    <div class="menu-desplegable" aria-label="Lista de categorías">
+                        <ul>
+                            <li><a class="menu-desplegable__opciones" href="Naturaleza.html" id="Naturaleza">Naturaleza</a></li>
+                            <li><a class="menu-desplegable__opciones" href="Anime.html" id="Anime">Anime</a></li>
+                            <li><a class="menu-desplegable__opciones" href="Pixel-Art.html" id="Pixel-Art">Pixel Art</a></li>
+                            <li><a class="menu-desplegable__opciones" href="CGI-3D.html" id="3D-CDI">3D / CGI</a></li>
+                            <li><a class="menu-desplegable__opciones" href="Fotografia.html" id="Fotografía">Fotografía</a></li>
+                        </ul>
+                    </div>
+                </div>
+    
+            </li>
+            <li><a class="nav__vínculo" href="">Artistas</a></li>
+            <li><a class="nav__vínculo" id="nuevo-contenido" href="">Nuevo Contenido</a></li>
+            <li id="nav__busqueda">
+                <div class="buscador-contenedor" id="buscadorContainer" aria-label="Buscador del sitio">
+                    <input type="text" class="buscador-input" id="buscadorInput" placeholder="Buscar..." aria-label="Campo de búsqueda">
+                    <button class="buscador-button" id="buscadorButton" aria-label="Buscar">
+                        <svg class="buscador-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                        </svg>
+                    </button>
+
+                </div>
+            </li>
+        </ul>
+    </nav>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Galería Imágenes -->
+        <section class="galeria" aria-label="Galeria de imágenes">
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes/1.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes/2.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes/3.jpg" alt="Arquitectura moderna" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes/4.jpg" alt="Naturaleza abstracta" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes/5.jpg" alt="Fotografía macro" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes/6.jpg" alt="Escena nocturna" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes/7.jpg" alt="Arte digital" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes/8.jpg" alt="Fotografía callejera" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes/9.jpg" alt="Paisaje costero" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes/10.jpg" alt="Retrato artístico" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes/11.jpg" alt="Fotografía conceptual" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes/12.jpg" alt="Abstracto geométrico" class="imagen-galeria">
+            </div>
+        </section>
+    </main>
+<a href="#boton-inicio" class="btn-flotante" aria-label="Volver al inicio">
+    <i class="fas fa-arrow-up"></i>  <!-- Icono de flecha arriba -->
+</a>
+    <!-- Modal para mostrar imagen y recomendaciones -->
+    <div id="modal" class="modal">
+        <span class="cerrar-modal" aria-label="Cerrar ventana de modal">&times;</span>
+        <div class="modal-contenido">
+            <figure class="imagen-principal">
+                <img id="imagen-ampliada" src="" alt="Imagen ampliada">
+            </figure>
+            <div class="info-recomendaciones">
+                <section class="informacion-imagen">
+                    <h3 id="titulo-imagen">Título de la imagen</h3>
+                    <div class="detalles-imagen">
+                        <p><strong>Artista:</strong> <span id="artista-imagen">Nombre del artista</span></p>
+                        <p><strong>Categoría:</strong> <span id="categoria-imagen">Categoría</span></p>
+                        <p><strong>Publicado:</strong> <span id="fecha-imagen">Fecha de publicación</span></p>
+                    </div>
+                    <div class="botones-accion">
+                        <button id="btn-me-gusta" class="boton-accion boton-like" aria-label="Boton de Me gusta">
+                            <i class="far fa-heart"></i> Me gusta
+                        </button>
+                        <button id="btn-compartir" class="boton-accion boton-compartir" aria-label="Botón de compartir">
+                            <i class="fas fa-share-alt"></i> Compartir
+                        </button>
+                        <button id="btn-descargar" class="boton-accion boton-descargar" aria-label="Botón de descargas">
+                            <i class="fas fa-download"></i> Descargar
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Recomendaciones -->
+                <section class="recomendaciones" aria-label="Imágenes recomendadas">
+                    <h3>Imágenes Recomendadas</h3>
+                    <div class="recomendaciones-grid" id="recomendaciones-grid">
+                        <!-- Imágenes recomendadas  -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página de descarga -->
+    <section id="pagina-descarga" class="pagina-descarga">
+        <article class="contenido-descarga">
+            <h2>Descargar Imagen en Alta Calidad</h2>
+            <img id="imagen-hd" src="" alt="Imagen en alta calidad" class="imagen-hd">
+            <div class="botones-descarga">
+                <button id="btn-descarga-directa" class="boton-descarga-hd">
+                    <i class="fas fa-download"></i>
+                    Descargar Imagen HD
+                </button>
+            </div>
+            <p aria-label="Información de la imagen">Esta imagen tiene una resolución de 4000x3000 px y un tamaño de archivo de 8.2 MB</p>
+        </article>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
