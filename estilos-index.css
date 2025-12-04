@@ -41,7 +41,6 @@
 
         .contenedor__header {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 0.1rem;
@@ -51,23 +50,22 @@
         .contenedor__TiMa {
             display: flex;
             align-items: center;
-            gap: 20px;
             background-color: #d41e1e;
-            padding: 10px;
             border-radius: 10px;
         }
 
         .contenedor__titulo {
-            padding: 0.5rem 1rem;
+            position: relative;
+            right: 10%;
             border-radius: 8px;
             text-align: center;
-            flex-shrink: 0;
             color: white;
         }
 
         .contenedor__icono {
-            width: clamp(5rem, 15vw, 10rem);
+            width: min(30rem, 90vw);
             height: auto;
+            padding-right: 20px;
             border-radius: 8px;
             max-width: 100%;
         }
@@ -131,7 +129,7 @@
             align-items: center;
             min-width: max-content;
             flex: 1;
-            max-width: 170px;
+            max-width: 100px;
             transition: border-radius 0.2s ease;
         }
         .nav__lista li:hover {
