@@ -718,83 +718,9 @@
         background-color: green;
     }
 
-    .nav__lista > *:last-child {
-        order: -1;
-        width: 100%; /* Ocupa toda la fila */
-        max-width: 100% !important;
-        margin-bottom: 1rem;
-    }
-    
-    /* Crear grid de 2 columnas para los otros items */
-    .nav__lista {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* 2 columnas */
-        gap: 0.5rem;
-    }
-    
-    .nav__lista > *:last-child {
-        grid-column: 1 / -1; /* Ocupa toda la fila */
-        order: -1;
-    }
-    
-    /* Ajustar los li restantes */
-    .nav__lista li {
-        max-width: 100%;
-        flex: none;
-    }
-    .nav__lista li:first-child { /* Inicio */
-        order: 2;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    } 
-    .nav__lista li:nth-child(2) { order: 5; } /* Categorías */
-    .nav__lista li:nth-child(3) { order: 3; } /* Artistas */
-    .nav__lista li:nth-child(4) { order: 4; } /* Nuevo Contenido */
-    
-    .modal-contenido {
-        flex-direction: column;
-        max-height: 90vh;
-        overflow-y: auto;
-    }
-    
-    .imagen-principal {
-        flex: none;
-        width: 100%;
-        padding: 15px;
-    }
-    
-    .imagen-principal img {
-        max-height: 50vh;
-        width: auto;
-        max-width: 100%;
-    }
-    
-    .info-recomendaciones {
-        flex: none;
-        width: 100%;
-        border-left: none;
-        border-top: 1px solid #e0e0e0;
-        max-height: none;
-        overflow-y: visible;
-    }
-    
-    .recomendaciones-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-    }
-    
-    .botones-accion {
-        justify-content: center;
-        gap: 8px;
-    }
-    
-    .boton-accion {
-        flex: 1;
-        min-width: 100px;
-        font-size: 0.8rem;
-        padding: 6px 10px;
-        align-items: center;
-        justify-content: center;
+    .Hamburguesa-principal{
+                    position: relative;
+            display: flex;
     }
     
     /* Asegurar que el modal ocupe bien la pantalla */
