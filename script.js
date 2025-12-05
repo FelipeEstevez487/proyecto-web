@@ -352,3 +352,37 @@ document.querySelectorAll('.menu-desplegable a').forEach(link => {
 });
 
 
+// Menú Hamburguesa para móviles
+const hamburguesaBtn = document.getElementById('hamburguesaBtn');
+const navLista = document.getElementById('navLista');
+
+if (hamburguesaBtn && navLista) {
+    hamburguesaBtn.addEventListener('click', function() {
+        // Alternar clase 'active' en el botón hamburguesa
+        this.classList.toggle('active');
+        
+        // Alternar clase 'active' en la lista de navegación
+        navLista.classList.toggle('active');
+        
+        // Prevenir scroll del body cuando el menú está abierto
+        document.body.style.overflow = navLista.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.nav__vínculo, .menu-desplegable__opciones').forEach(enlace => {
+        enlace.addEventListener('click', function() {
+            hamburguesaBtn.classList.remove('active');
+            navLista.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Cerrar menú al hacer clic fuera de él
+    document.addEventListener('click', function(event) {
+        if (!navLista.contains(event.target) && !hamburguesaBtn.contains(event.target) && navLista.classList.contains('active')) {
+            hamburguesaBtn.classList.remove('active');
+            navLista.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}

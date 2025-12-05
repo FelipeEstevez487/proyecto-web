@@ -632,6 +632,42 @@
 }
 
 
+
+.hamburguesa-btn {
+    display: none; /* Oculto por defecto en pantallas grandes */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.hamburguesa-linea {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Animación cuando el botón está activo */
+.hamburguesa-btn.active .hamburguesa-linea:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburguesa-btn.active .hamburguesa-linea:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburguesa-btn.active .hamburguesa-linea:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+
 @media (max-width: 1150px) {
     body{
         background-color: blue;
@@ -718,85 +754,111 @@
         background-color: green;
     }
 
-    .nav__lista > *:last-child {
-        order: -1;
-        width: 100%; /* Ocupa toda la fila */
-        max-width: 100% !important;
-        margin-bottom: 1rem;
+.hamburguesa-btn {
+        display: flex; /* Ahora sí se muestra */
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+    .hamburguesa-linea {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburguesa animada cuando está activa */
+.hamburguesa-btn.active .hamburguesa-linea:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburguesa-btn.active .hamburguesa-linea:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburguesa-btn.active .hamburguesa-linea:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+    
+    /* Ajustar header para el botón */
+    .contenedor__header {
+        position: relative;
+        padding-right: 60px;
     }
     
-    /* Crear grid de 2 columnas para los otros items */
+    /* Ocultar la lista normal de navegación */
     .nav__lista {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* 2 columnas */
-        gap: 0.5rem;
-    }
-    
-    .nav__lista > *:last-child {
-        grid-column: 1 / -1; /* Ocupa toda la fila */
-        order: -1;
-    }
-    
-    /* Ajustar los li restantes */
-    .nav__lista li {
-        max-width: 100%;
-        flex: none;
-    }
-    .nav__lista li:first-child { /* Inicio */
-        order: 2;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    } 
-    .nav__lista li:nth-child(2) { order: 5; } /* Categorías */
-    .nav__lista li:nth-child(3) { order: 3; } /* Artistas */
-    .nav__lista li:nth-child(4) { order: 4; } /* Nuevo Contenido */
-    
-    .modal-contenido {
-        flex-direction: column;
-        max-height: 90vh;
-        overflow-y: auto;
-    }
-    
-    .imagen-principal {
-        flex: none;
+        display: none !important; /* Oculta el menú horizontal */
+        /* Los siguientes estilos son para cuando se active */
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        padding: 0;
+        margin: 0;
+        gap: 2rem;
+    }
+    
+    /* Mostrar la lista cuando tiene clase 'active' */
+    .nav__lista.active {
+        display: flex !important;
+    }
+    
+    /* Estilos específicos para móviles */
+    .nav__lista li {
+        width: 80%;
+        max-width: 300px;
+        background: #2c2c2c;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        border-radius: 10px;
+        min-width: 0;
+        font-size: 1.5rem;
+    }
+    
+    /* Ajustar buscador */
+    #nav__busqueda {
+        width: 80%;
+        max-width: 300px;
+        background: transparent !important;
+        padding: 0 !important;
+    }
+    
+    /* Ajustar logo y título */
+    .contenedor__TiMa {
+        width: 100%;
+        justify-content: center;
         padding: 15px;
     }
     
-    .imagen-principal img {
-        max-height: 50vh;
-        width: auto;
-        max-width: 100%;
+    .contenedor__titulo {
+        font-size: 3rem;
+        right: 0;
     }
     
-    .info-recomendaciones {
-        flex: none;
-        width: 100%;
-        border-left: none;
-        border-top: 1px solid #e0e0e0;
-        max-height: none;
-        overflow-y: visible;
+    .contenedor__icono {
+        max-width: 80px;
     }
     
-    .recomendaciones-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
+    /* Asegurar que el modal ocupe bien la pantalla */
+    .modal {
+        padding: 10px;
     }
     
-    .botones-accion {
-        justify-content: center;
-        gap: 8px;
+    .cerrar-modal {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
     }
-    
-    .boton-accion {
-        flex: 1;
-        min-width: 100px;
-        font-size: 0.8rem;
-        padding: 6px 10px;
-        align-items: center;
-        justify-content: center;
-    }
-    
+
     /* Asegurar que el modal ocupe bien la pantalla */
     .modal {
         padding: 10px;
