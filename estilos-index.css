@@ -1,6 +1,6 @@
 :root{
-    --Fuente-Botones: "Cardo", serif, 'Courier New', Courier, monospace;
-    --Fuente-menu: "Lato", sans-serif, 'Courier New', Courier, monospace;
+    --Fuente-Botones: "Cardo", serif, Courier, monospace;
+    --Fuente-menu: "Lato", sans-serif, Courier, monospace;
 
     --color-primario: #d41e1e;        
     --color-fondo: #f8f9fa;  
@@ -70,31 +70,6 @@
             max-width: 100%;
         }
 
-    .contenedor__botones {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    flex-direction: row;
-    margin-top: -8%;  /* esto pocicionan a los botones en donde quiero que estén */
-    }
-    .contenedor__boton {
-    padding: 0.5rem 1rem;
-    background-color: #e48d1c;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: clamp(1rem, 2.1vw, 1.5rem);
-    height: auto;
-    min-height: 3rem;
-    width: auto;
-    }
-
-        .contenedor__boton:hover {
-            background-color: #c97b18;
-        }
-
         .contenedor__content {
             width: 100%;
             margin-top: 1rem;
@@ -106,13 +81,14 @@
             width: 100%;
         }
 
-        .nav__lista {
+        .nav__lista{
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: clamp(1rem, 3vw, 6rem);
+            gap: clamp(1.2rem, 1.5vw, 3rem);
+            padding-left: 1rem;
             list-style: none;
             width: 100%;
+            background-color: red;
+            min-width: 60%;
         }
 
 
@@ -128,8 +104,6 @@
             justify-content: center;
             align-items: center;
             min-width: max-content;
-            flex: 1;
-            max-width: 100px;
             transition: border-radius 0.2s ease;
         }
         .nav__lista li:hover {
@@ -660,14 +634,7 @@
 
 @media (max-width: 1040px) {
 
-    .buscador-contenedor {
-        position: relative;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        max-width: 50%;  /* hacer responsive esto con media queries */
-        margin: 0;
-    }
+
     .contenedor__botones {
     display: flex;
     gap: 1rem;
@@ -752,21 +719,74 @@
 }
 
 
-@media (max-width: 550px){
+@media (max-width: 1150px){
+    body{
+        background-color: red;
+    }
+            .nav__lista{
+            display: flex;
+            gap: 1%;
+            list-style: none;
+            padding-left: 0;
+            width: 100%;
+            background-color: rgb(140, 0, 255);
+            min-width: 60%;
+        }
+
+        .nav__lista li {
+            position: relative;
+            font-size: clamp(0.9rem, 2.8vw, 1.8rem);
+            background: #5e1212;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 0;
+            transition: border-radius 0.2s ease;
+        }
+
+            .opciones {
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: clamp(0.9rem, 2.8vw, 1.8rem);
+            text-decoration: none;
+            transition: all 0.2s;
+            white-space: nowrap;
+            font-family: var(--Fuente-Botones);
+        }
+
+                .contenedor__titulo {
+            position: relative;
+            right: 10%;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+        }
+
+        .contenedor__icono {
+            width: min(30rem, 90vw);
+            height: auto;
+            padding-right: 20px;
+            border-radius: 8px;
+            max-width: 100%;
+        }
+
+}
+
+
+@media (max-width: 0px){
 
     .nav__lista > *:last-child {
         order: -1;
         width: 100%; /* Ocupa toda la fila */
         max-width: 100% !important;
         margin-bottom: 1rem;
-    }
-    .buscador-contenedor {
-        position: relative;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
     }
     
     /* Crear grid de 2 columnas para los otros items */
