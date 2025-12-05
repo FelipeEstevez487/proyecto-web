@@ -386,3 +386,96 @@ if (hamburguesaBtn && navLista) {
         }
     });
 }
+
+
+
+
+
+/* HEADER */
+        // Actualizar indicador de tamaño de pantalla
+        function updateSizeIndicator() {
+            const width = window.innerWidth;
+            document.getElementById('widthValue').textContent = width;
+            
+            const icon = document.getElementById('screenIcon');
+            if (width <= 825) {
+                icon.textContent = '📱';
+                icon.title = 'Modo móvil activado';
+            } else {
+                icon.textContent = '💻';
+                icon.title = 'Modo escritorio';
+            }
+        }
+        
+        // Función para simular pantalla móvil
+        function simulateMobile() {
+            window.resizeTo(400, 800);
+            setTimeout(() => {
+                const hamburger = document.getElementById('Hamburguesa-principal');
+                hamburger.checked = true;
+            }, 500);
+        }
+        
+        // Función para abrir/cerrar el menú hamburguesa
+        function toggleHamburger() {
+            const hamburger = document.getElementById('Hamburguesa-principal');
+            hamburger.checked = !hamburger.checked;
+            
+            if (hamburger.checked) {
+                alert('Menú hamburguesa abierto');
+            } else {
+                alert('Menú hamburguesa cerrado');
+            }
+        }
+        
+        // Función para abrir/cerrar el submenú de categorías
+        function toggleCategories() {
+            const categories = document.getElementById('menu-opciones');
+            categories.checked = !categories.checked;
+            
+            if (categories.checked) {
+                alert('Submenú de categorías abierto');
+            } else {
+                alert('Submenú de categorías cerrado');
+            }
+        }
+        
+        // Función para reiniciar la demo
+        function resetDemo() {
+            const hamburger = document.getElementById('Hamburguesa-principal');
+            const categories = document.getElementById('menu-opciones');
+            hamburger.checked = false;
+            categories.checked = false;
+            window.resizeTo(1024, 768);
+            alert('Demo reiniciada - Menú cerrado y tamaño restablecido');
+        }
+        
+        // Cerrar menú al hacer clic en enlaces (solo para demo)
+        document.querySelectorAll('.nav__vínculo, .menu-desplegable__opciones').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 825) {
+                    // Cerrar menú hamburguesa en móvil después de hacer clic
+                    const hamburger = document.getElementById('Hamburguesa-principal');
+                    hamburger.checked = false;
+                    
+                    // Cerrar submenú de categorías si está abierto
+                    const categories = document.getElementById('menu-opciones');
+                    categories.checked = false;
+                    
+                    console.log('Menú cerrado después de hacer clic en:', this.textContent);
+                }
+            });
+        });
+        
+        // Cerrar menú al hacer clic fuera (overlay)
+        document.querySelector('.nav__lista').addEventListener('click', function(e) {
+            if (e.target === this && window.innerWidth <= 825) {
+                const hamburger = document.getElementById('Hamburguesa-principal');
+                hamburger.checked = false;
+            }
+        });
+        
+        // Inicializar y actualizar tamaño
+        window.addEventListener('load', updateSizeIndicator);
+        window.addEventListener('resize', updateSizeIndicator);
+        updateSizeIndicator();
