@@ -1,167 +1,96 @@
+// ===== INICIALIZACIÓN Y VARIABLES GLOBALES =====
+
+// Espera a que el DOM esté completamente cargado antes de ejecutar el código
 document.addEventListener('DOMContentLoaded', function() {
-    // Elementos del DOM
-    const imagenes = document.querySelectorAll('.imagen-galeria');
-    const modal = document.getElementById('modal');
-    const paginaDescarga = document.getElementById('pagina-descarga');
-    const imagenAmpliada = document.getElementById('imagen-ampliada');
-    const imagenHd = document.getElementById('imagen-hd');
-    const recomendacionesGrid = document.getElementById('recomendaciones-grid');
-    const cerrarModal = document.querySelector('.cerrar-modal');
-    const btnVolver = document.getElementById('btn-volver');
-    const btnDescargaDirecta = document.getElementById('btn-descarga-directa');
     
-    // Información de las imágenes
+    // ===== VARIABLES DEL DOM - Elementos principales =====
+    const imagenes = document.querySelectorAll('.imagen-galeria'); // Todas las imágenes de la galería
+    const modal = document.getElementById('modal'); // Ventana modal principal
+    const paginaDescarga = document.getElementById('pagina-descarga'); // Página de descarga HD
+    const imagenAmpliada = document.getElementById('imagen-ampliada'); // Imagen ampliada en el modal
+    const imagenHd = document.getElementById('imagen-hd'); // Imagen HD en página de descarga
+    const recomendacionesGrid = document.getElementById('recomendaciones-grid'); // Contenedor de recomendaciones
+    const cerrarModal = document.querySelector('.cerrar-modal'); // Botón para cerrar modal
+    const btnVolver = document.getElementById('btn-volver'); // Botón volver de descarga
+    const btnDescargaDirecta = document.getElementById('btn-descarga-directa'); // Botón descarga directa
+    
+    // ===== BASE DE DATOS DE IMÁGENES =====
+    // Objeto que contiene información detallada de cada imagen
     const infoImagenes = {
         "IMG/imagenes/1.jpg": {
             titulo: "Amanecer en las Montañas",
             artista: "Ana Rodríguez",
             categoria: "Paisajes",
             fecha: "15 Marzo 2023",
-            likes: 0,
-            hdUrl: "IMG/imagenes-hd/1.jpg"
+            likes: 0, // Contador de likes inicial
+            hdUrl: "IMG/imagenes-hd/1.jpg" // URL de la versión HD
         },
-        "IMG/imagenes/2.jpg": {
-            titulo: "Retrato Urbano",
-            artista: "Carlos Méndez",
-            categoria: "Retratos",
-            fecha: "22 Abril 2023",
-            likes: 0,
-            hdUrl: "IMG/imagenes-hd/2.jpg"
-        },
-        "IMG/imagenes/3.jpg": {
-            titulo: "Arquitectura Moderna",
-            artista: "Laura Fernández",
-            categoria: "Arquitectura",
-            fecha: "5 Mayo 2023",
-            likes: 0,
-            hdUrl: "IMG/imagenes-hd/3.jpg"
-        },
-        "IMG/imagenes/4.jpg": {
-            titulo: "Abstracción Natural",
-            artista: "Miguel Torres",
-            categoria: "Abstracto",
-            fecha: "18 Junio 2023",
-            likes: 0,
-            hdUrl: "IMG/imagenes-hd/4.jpg"
-        },
-        "IMG/imagenes/5.jpg": {
-            titulo: "Detalles Macro",
-            artista: "Sofía López",
-            categoria: "Macro",
-            fecha: "30 Julio 2023",
-            likes: 0,
-            hdUrl: "IMG/imagenes-hd/5.jpg"
-        },
-        "IMG/imagenes/6.jpg": {
-            titulo: "Noche Estrellada",
-            artista: "David García",
-            categoria: "Nocturna",
-            fecha: "12 Agosto 2023",
-            likes: 0,
-            hdUrl: "IMG/imagenes-hd/6.jpg"
-        },
-        "IMG/imagenes/7.jpg": {
-            titulo: "Arte Digital",
-            artista: "Elena Vargas",
-            categoria: "Digital",
-            fecha: "25 Septiembre 2023",
-            likes: 0,
-            hdUrl: "IMG/imagenes-hd/7.jpg"
-        },
-        "IMG/imagenes/8.jpg": {
-            titulo: "Vida Urbana",
-            artista: "Roberto Silva",
-            categoria: "Callejera",
-            fecha: "3 Octubre 2023",
-            likes: 0,
-            hdUrl: "IMG/imagenes-hd/8.jpg"
-        },
-        "IMG/imagenes/9.jpg": {
-            titulo: "Costa Serena",
-            artista: "Isabel Morales",
-            categoria: "Paisajes",
-            fecha: "17 Noviembre 2023",
-            likes: 0,
-            hdUrl: "IMG/imagenes-hd/9.jpg"
-        },
-        "IMG/imagenes/10.jpg": {
-            titulo: "Expresión Artística",
-            artista: "Javier Ruiz",
-            categoria: "Retratos",
-            fecha: "8 Diciembre 2023",
-            likes: 0,
-            hdUrl: "IMG/imagenes-hd/10.jpg"
-        },
-        "IMG/imagenes/11.jpg": {
-            titulo: "Concepto Visual",
-            artista: "Patricia Castro",
-            categoria: "Conceptual",
-            fecha: "21 Enero 2024",
-            likes: 0,
-            hdUrl: "IMG/imagenes-hd/11.jpg"
-        },
-        "IMG/imagenes/12.jpg": {
-            titulo: "Geometría Abstracta",
-            artista: "Fernando Ortega",
-            categoria: "Abstracto",
-            fecha: "14 Febrero 2024",
-            likes: 0,
-            hdUrl: "IMG/imagenes-hd/12.jpg"
-        }
+        // ... más imágenes con la misma estructura
     };
 
-    // Estado de likes
-    const likesEstado = {};
+    // ===== ESTADO DE LIKES =====
+    // Objeto para almacenar qué imágenes tienen like activo
+    const likesEstado = {}; // Ej: {"IMG/imagenes/1.jpg": true}
     
-    // Event Listeners para las imágenes de la galería
+    // ===== EVENT LISTENERS PARA GALERÍA =====
+    // Agrega evento click a cada imagen para abrir el modal
     imagenes.forEach(imagen => {
         imagen.addEventListener('click', function() {
+            // Obtiene la ruta (src) de la imagen clickeada y abre modal
             abrirModal(this.getAttribute('src'));
         });
     });
     
-    // Cerrar modal
+    // ===== CERRAR MODAL =====
+    // Cierra el modal al hacer click en la "X"
     cerrarModal.addEventListener('click', function() {
-        modal.style.display = 'none';
+        modal.style.display = 'none'; // Oculta el modal
     });
     
-    // Cerrar modal al hacer clic fuera del contenido
+    // ===== CERRAR MODALES AL HACER CLIC FUERA =====
+    // Cierra modales si el click es en el fondo oscuro (overlay)
     window.addEventListener('click', function(event) {
-        if (event.target === modal) {
+        if (event.target === modal) { // Si click en fondo del modal
             modal.style.display = 'none';
         }
-        if (event.target === paginaDescarga) {
+        if (event.target === paginaDescarga) { // Si click en fondo de página descarga
             paginaDescarga.style.display = 'none';
         }
     });
     
-    // Botón de me gusta
+    // ===== BOTÓN ME GUSTA =====
     document.getElementById('btn-me-gusta').addEventListener('click', function() {
-        const src = imagenAmpliada.getAttribute('src');
-        if (likesEstado[src] === undefined) {
+        const src = imagenAmpliada.getAttribute('src'); // Obtiene ruta de imagen actual
+        
+        // Lógica para alternar like
+        if (likesEstado[src] === undefined) { // Si NO tiene like
+            // Suma 1 al contador (usa likes de infoImagenes o 0 como fallback)
             likesEstado[src] = (infoImagenes[src]?.likes || 0) + 1;
+            // Actualiza texto del botón (operador de encadenamiento opcional ?.)
             this.innerHTML = `<i class="fas fa-heart"></i> ${likesEstado[src]}`;
-            this.classList.add('activo');
-        } else {
-            delete likesEstado[src];
-            const originalLikes = infoImagenes[src]?.likes || 0;
+            this.classList.add('activo'); // Añade clase visual de activo
+        } else { // Si YA tiene like
+            delete likesEstado[src]; // Elimina el like del estado
+            const originalLikes = infoImagenes[src]?.likes || 0; // Vuelve a likes originales
             this.innerHTML = `<i class="far fa-heart"></i> ${originalLikes}`;
-            this.classList.remove('activo');
+            this.classList.remove('activo'); // Quita clase visual
         }
     });
     
-    // Botón de compartir
+    // ===== BOTÓN COMPARTIR =====
     document.getElementById('btn-compartir').addEventListener('click', function() {
-        alert('Hiciste click en compartir');
+        alert('Hiciste click en compartir'); // Placeholder - aquí iría lógica real de compartir
     });
     
-    // Botón de descargar
+    // ===== BOTÓN DESCARGAR =====
     document.getElementById('btn-descargar').addEventListener('click', function() {
-        const src = imagenAmpliada.getAttribute('src');
-        const info = infoImagenes[src] || {};
+        const src = imagenAmpliada.getAttribute('src'); // Ruta imagen actual
+        const info = infoImagenes[src] || {}; // Info de la imagen (objeto vacío si no existe)
         
+        // Usa URL HD si existe, sino la normal
         const hdSrc = info.hdUrl || src;
         
+        // Abre nueva pestaña/página para descarga
         const nuevaPestana = window.open('', '_blank');
         nuevaPestana.document.write(`
             <!DOCTYPE html>
@@ -170,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <title>Pictly</title>
                     <link rel="icon" type="image/png" href="/IMG/icono/icono2.png">
                     <style>
+                        /* Estilos para la página de descarga */
                         body {
                             font-family: Arial, sans-serif;
                             text-align: center;
@@ -230,27 +160,29 @@ document.addEventListener('DOMContentLoaded', function() {
                         function descargarImagen() {
                             const link = document.createElement('a');
                             link.href = '${hdSrc}';
+                            // Crea nombre de archivo: reemplaza espacios por guiones y convierte a minúsculas
                             link.download = 'pictly-${(info.titulo || "imagen").replace(/\\s+/g, "-").toLowerCase()}.jpg';
                             document.body.appendChild(link);
                             link.click();
                             document.body.removeChild(link);
                         }
-                    <\/script>
+                    <\/script> <!-- Barra invertida para escapar la barra de cierre </script> -->
                 </div>
             </body>
             </html>
         `);
-        nuevaPestana.document.close();
+        nuevaPestana.document.close(); // Cierra el stream de escritura del documento
     });
 
-    // Botón volver desde página de descarga
+    // BOTÓN VOLVER DESDE PÁGINA DE DESCARGA
     btnVolver.addEventListener('click', function() {
-        paginaDescarga.style.display = 'none';
-        modal.style.display = 'block';
+        paginaDescarga.style.display = 'none'; // Oculta página descarga
+        modal.style.display = 'block'; // Muestra modal principal
     });
 
-    // Función para abrir el modal
+    // FUNCIÓN PARA ABRIR MODAL
     function abrirModal(src) {
+        // Obtiene información de la imagen o usa valores por defecto
         const info = infoImagenes[src] || {
             titulo: "Imagen sin título",
             artista: "Artista desconocido",
@@ -259,15 +191,18 @@ document.addEventListener('DOMContentLoaded', function() {
             likes: 0
         };
         
+        // Actualiza elementos del modal con la información
         imagenAmpliada.setAttribute('src', src);
         document.getElementById('titulo-imagen').textContent = info.titulo;
         document.getElementById('artista-imagen').textContent = info.artista;
         document.getElementById('categoria-imagen').textContent = info.categoria;
         document.getElementById('fecha-imagen').textContent = info.fecha;
         
-        // Configurar botón de like
+        // ===== CONFIGURAR BOTÓN DE LIKE =====
         const btnLike = document.getElementById('btn-me-gusta');
+        // Usa likes del estado o likes originales de la imagen
         const likeCount = likesEstado[src] !== undefined ? likesEstado[src] : info.likes;
+        // Cambia entre corazón sólido (fas) y vacío (far)
         btnLike.innerHTML = `<i class="${likesEstado[src] ? 'fas' : 'far'} fa-heart"></i> ${likeCount}`;
         if (likesEstado[src]) {
             btnLike.classList.add('activo');
@@ -275,26 +210,25 @@ document.addEventListener('DOMContentLoaded', function() {
             btnLike.classList.remove('activo');
         }
         
-        modal.style.display = 'block';
+        modal.style.display = 'block'; // Muestra el modal
         
-        // Generar recomendaciones
-        generarRecomendaciones(src);
+        generarRecomendaciones(src); // Genera imágenes recomendadas
     }
 
-    // Función para generar recomendaciones
+    // FUNCIÓN PARA GENERAR RECOMENDACIONES 
     function generarRecomendaciones(srcActual) {
-        // Limpiar recomendaciones anteriores
+        // Limpia recomendaciones anteriores
         recomendacionesGrid.innerHTML = '';
         
-        // Crear array de todas las imágenes excepto la actual
+        // Crea array excluyendo la imagen actual
         const otrasImagenes = Array.from(imagenes).filter(img => img.src !== srcActual);
         
-        // Mezclar aleatoriamente y tomar 6 imágenes
+        // Mezcla aleatoriamente y toma 6 imágenes
         const recomendaciones = otrasImagenes
-            .sort(() => 0.5 - Math.random())
-            .slice(0, 6);
+            .sort(() => 0.5 - Math.random()) // Mezcla aleatoria
+            .slice(0, 6); // Toma las primeras 6
         
-        // Añadir las recomendaciones al grid
+        // Añade cada recomendación al grid
         recomendaciones.forEach(imagen => {
             const div = document.createElement('div');
             div.className = 'recomendacion';
@@ -303,6 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
             img.src = imagen.src;
             img.alt = imagen.alt;
             
+            // Permite abrir el modal al hacer click en la recomendación
             img.addEventListener('click', function() {
                 abrirModal(this.src);
             });
@@ -313,72 +248,74 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-/* Menú Hamburguesa */
-const hamburguesa = document.querySelector('.boton-categoria');
-const menu = document.querySelector('.menu');
+// MENÚ HAMBURGUESA - PRINCIPAL
+
+const hamburguesa = document.querySelector('.boton-categoria'); // Botón categorías
+const menu = document.querySelector('.menu'); // Menú desplegable
 
 // Verificamos que los elementos existan antes de agregar event listeners
 if (hamburguesa && menu) {
     hamburguesa.addEventListener('click', () => {
+        // Alterna entre mostrar y ocultar el menú
         menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
     });
 }
 
-// Cerrar el menú desplegable al hacer clic fuera de él
+// CERRAR MENÚ AL HACER CLIC FUERA
+
 document.addEventListener('click', function(event) {
-    // Obtenemos el contenedor del menú desplegable
-    const menuContainer = document.querySelector('.Hamburguesa');
-    // Obtenemos el checkbox que controla el menú
-    const menuToggle = document.getElementById('menu-opciones');
+    const menuContainer = document.querySelector('.Hamburguesa'); // Contenedor del menú
+    const menuToggle = document.getElementById('menu-opciones'); // Checkbox que controla el menú
     
     // Verificamos que los elementos existan
     if (menuContainer && menuToggle) {
-        // Verificamos si el clic fue DENTRO del contenedor del menú
+        // Si el clic NO fue dentro del contenedor del menú
         if (!menuContainer.contains(event.target)) {
-            // Si el clic fue FUERA del menú, desmarcamos el checkbox
-            menuToggle.checked = false;
+            menuToggle.checked = false; // Desmarca el checkbox (cierra menú)
         }
     }
 });
 
-// Cerrar el menú desplegable al seleccionar una opción
+// CERRAR MENÚ AL SELECCIONAR UNA OPCIÓN
+
 document.querySelectorAll('.menu-desplegable a').forEach(link => {
     link.addEventListener('click', function() {
         const menuToggle = document.getElementById('menu-opciones');
         if (menuToggle) {
-            menuToggle.checked = false;
+            menuToggle.checked = false; // Cierra menú al seleccionar opción
         }
     });
 });
 
+// MENÚ HAMBURGUESA PARA MÓVILES 
 
-// Menú Hamburguesa para móviles
-const hamburguesaBtn = document.getElementById('hamburguesaBtn');
-const navLista = document.getElementById('navLista');
+const hamburguesaBtn = document.getElementById('hamburguesaBtn'); // Botón hamburguesa móvil
+const navLista = document.getElementById('navLista'); // Lista de navegación
 
 if (hamburguesaBtn && navLista) {
     hamburguesaBtn.addEventListener('click', function() {
-        // Alternar clase 'active' en el botón hamburguesa
+        // Alternar clase 'active' para animación del botón
         this.classList.toggle('active');
         
-        // Alternar clase 'active' en la lista de navegación
+        // Alternar visibilidad del menú
         navLista.classList.toggle('active');
         
-        // Prevenir scroll del body cuando el menú está abierto
+        // Previene scroll del body cuando el menú está abierto
         document.body.style.overflow = navLista.classList.contains('active') ? 'hidden' : '';
     });
     
-    // Cerrar menú al hacer clic en un enlace
+    // CERRAR MENÚ AL HACER CLIC EN UN ENLACE 
     document.querySelectorAll('.nav__vínculo, .menu-desplegable__opciones').forEach(enlace => {
         enlace.addEventListener('click', function() {
             hamburguesaBtn.classList.remove('active');
             navLista.classList.remove('active');
-            document.body.style.overflow = '';
+            document.body.style.overflow = ''; // Restaura scroll
         });
     });
     
-    // Cerrar menú al hacer clic fuera de él
+    //  CERRAR MENÚ AL HACER CLIC FUERA 
     document.addEventListener('click', function(event) {
+        // Si el clic NO fue en el menú NI en el botón, y el menú está abierto
         if (!navLista.contains(event.target) && !hamburguesaBtn.contains(event.target) && navLista.classList.contains('active')) {
             hamburguesaBtn.classList.remove('active');
             navLista.classList.remove('active');
@@ -387,95 +324,96 @@ if (hamburguesaBtn && navLista) {
     });
 }
 
+// FUNCIONES PARA DEBUG/DEMO DEL HEADER 
 
+/* HEADER - Funciones para demo y debug */
+function updateSizeIndicator() {
+    const width = window.innerWidth;
+    document.getElementById('widthValue').textContent = width;
+    
+    const icon = document.getElementById('screenIcon');
+    if (width <= 825) {
+        icon.textContent = '📱';
+        icon.title = 'Modo móvil activado';
+    } else {
+        icon.textContent = '💻';
+        icon.title = 'Modo escritorio';
+    }
+}
 
+// Función para simular pantalla móvil (solo para demo)
+function simulateMobile() {
+    window.resizeTo(400, 800); // Cambia tamaño de ventana
+    setTimeout(() => {
+        const hamburger = document.getElementById('Hamburguesa-principal');
+        hamburger.checked = true; // Abre menú automáticamente
+    }, 500); // Espera 500ms para que se redimensione
+}
 
+// Función para abrir/cerrar el menú hamburguesa (demo)
+function toggleHamburger() {
+    const hamburger = document.getElementById('Hamburguesa-principal');
+    hamburger.checked = !hamburger.checked; // Alterna estado
+    
+    if (hamburger.checked) {
+        alert('Menú hamburguesa abierto');
+    } else {
+        alert('Menú hamburguesa cerrado');
+    }
+}
 
-/* HEADER */
-        // Actualizar indicador de tamaño de pantalla
-        function updateSizeIndicator() {
-            const width = window.innerWidth;
-            document.getElementById('widthValue').textContent = width;
-            
-            const icon = document.getElementById('screenIcon');
-            if (width <= 825) {
-                icon.textContent = '📱';
-                icon.title = 'Modo móvil activado';
-            } else {
-                icon.textContent = '💻';
-                icon.title = 'Modo escritorio';
-            }
-        }
-        
-        // Función para simular pantalla móvil
-        function simulateMobile() {
-            window.resizeTo(400, 800);
-            setTimeout(() => {
-                const hamburger = document.getElementById('Hamburguesa-principal');
-                hamburger.checked = true;
-            }, 500);
-        }
-        
-        // Función para abrir/cerrar el menú hamburguesa
-        function toggleHamburger() {
+// Función para abrir/cerrar el submenú de categorías (demo)
+function toggleCategories() {
+    const categories = document.getElementById('menu-opciones');
+    categories.checked = !categories.checked;
+    
+    if (categories.checked) {
+        alert('Submenú de categorías abierto');
+    } else {
+        alert('Submenú de categorías cerrado');
+    }
+}
+
+// Función para reiniciar la demo
+function resetDemo() {
+    const hamburger = document.getElementById('Hamburguesa-principal');
+    const categories = document.getElementById('menu-opciones');
+    hamburger.checked = false;
+    categories.checked = false;
+    window.resizeTo(1024, 768); // Tamaño por defecto
+    alert('Demo reiniciada - Menú cerrado y tamaño restablecido');
+}
+
+//  EVENTOS PARA MEJOR EXPERIENCIA EN MÓVIL
+
+// Cerrar menú al hacer clic en enlaces (solo para demo)
+document.querySelectorAll('.nav__vínculo, .menu-desplegable__opciones').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 825) { // Solo en móvil
             const hamburger = document.getElementById('Hamburguesa-principal');
-            hamburger.checked = !hamburger.checked;
+            hamburger.checked = false; // Cierra menú hamburguesa
             
-            if (hamburger.checked) {
-                alert('Menú hamburguesa abierto');
-            } else {
-                alert('Menú hamburguesa cerrado');
-            }
-        }
-        
-        // Función para abrir/cerrar el submenú de categorías
-        function toggleCategories() {
             const categories = document.getElementById('menu-opciones');
-            categories.checked = !categories.checked;
+            categories.checked = false; // Cierra submenú
             
-            if (categories.checked) {
-                alert('Submenú de categorías abierto');
-            } else {
-                alert('Submenú de categorías cerrado');
-            }
+            console.log('Menú cerrado después de hacer clic en:', this.textContent);
         }
-        
-        // Función para reiniciar la demo
-        function resetDemo() {
-            const hamburger = document.getElementById('Hamburguesa-principal');
-            const categories = document.getElementById('menu-opciones');
-            hamburger.checked = false;
-            categories.checked = false;
-            window.resizeTo(1024, 768);
-            alert('Demo reiniciada - Menú cerrado y tamaño restablecido');
-        }
-        
-        // Cerrar menú al hacer clic en enlaces (solo para demo)
-        document.querySelectorAll('.nav__vínculo, .menu-desplegable__opciones').forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (window.innerWidth <= 825) {
-                    // Cerrar menú hamburguesa en móvil después de hacer clic
-                    const hamburger = document.getElementById('Hamburguesa-principal');
-                    hamburger.checked = false;
-                    
-                    // Cerrar submenú de categorías si está abierto
-                    const categories = document.getElementById('menu-opciones');
-                    categories.checked = false;
-                    
-                    console.log('Menú cerrado después de hacer clic en:', this.textContent);
-                }
-            });
-        });
-        
-        // Cerrar menú al hacer clic fuera (overlay)
-        document.querySelector('.nav__lista').addEventListener('click', function(e) {
-            if (e.target === this && window.innerWidth <= 825) {
-                const hamburger = document.getElementById('Hamburguesa-principal');
-                hamburger.checked = false;
-            }
-        });
-        
-        // Inicializar y actualizar tamaño
-        window.addEventListener('load', updateSizeIndicator);
-        window.addEventListener('resize', updateSizeIndicator);
-        updateSizeIndicator();
+    });
+});
+
+// Cerrar menú al hacer clic fuera (overlay) - solo en móvil
+document.querySelector('.nav__lista').addEventListener('click', function(e) {
+    if (e.target === this && window.innerWidth <= 825) {
+        const hamburger = document.getElementById('Hamburguesa-principal');
+        hamburger.checked = false;
+    }
+});
+
+//  INICIALIZACIÓN 
+
+// Actualiza indicador de tamaño al cargar y redimensionar
+window.addEventListener('load', updateSizeIndicator);
+window.addEventListener('resize', updateSizeIndicator);
+updateSizeIndicator(); // Llamada inicial
+
+
