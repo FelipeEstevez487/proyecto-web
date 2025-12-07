@@ -216,36 +216,46 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // FUNCIÓN PARA GENERAR RECOMENDACIONES 
-    function generarRecomendaciones(srcActual) {
-        // Limpia recomendaciones anteriores
-        recomendacionesGrid.innerHTML = '';
+function generarRecomendaciones(srcActual) {
+    // Limpia recomendaciones anteriores
+    recomendacionesGrid.innerHTML = '';
+    
+    // Crea array excluyendo la imagen actual
+    const otrasImagenes = Array.from(imagenes).filter(img => img.src !== srcActual);
+    
+    // Mezcla aleatoriamente
+    const mezcladas = otrasImagenes.sort(() => 0.5 - Math.random());
+    
+    // Determinar cuántas imágenes mostrar según el tamaño de pantalla
+    const esDesktop = window.innerWidth > 825;
+    const cantidad = esDesktop ? 4 : 0; // 4 en desktop, 0 en mobile (porque se oculta)
+    
+    // Tomar las primeras 'cantidad' imágenes
+    const recomendaciones = mezcladas.slice(0, cantidad);
+    
+    // Añade cada recomendación al grid (solo si hay cantidad > 0)
+    recomendaciones.forEach(imagen => {
+        const div = document.createElement('div');
+        div.className = 'recomendacion';
         
-        // Crea array excluyendo la imagen actual
-        const otrasImagenes = Array.from(imagenes).filter(img => img.src !== srcActual);
+        const img = document.createElement('img');
+        img.src = imagen.src;
+        img.alt = imagen.alt;
         
-        // Mezcla aleatoriamente y toma 6 imágenes
-        const recomendaciones = otrasImagenes
-            .sort(() => 0.5 - Math.random()) // Mezcla aleatoria
-            .slice(0, 6); // Toma las primeras 6
-        
-        // Añade cada recomendación al grid
-        recomendaciones.forEach(imagen => {
-            const div = document.createElement('div');
-            div.className = 'recomendacion';
-            
-            const img = document.createElement('img');
-            img.src = imagen.src;
-            img.alt = imagen.alt;
-            
-            // Permite abrir el modal al hacer click en la recomendación
-            img.addEventListener('click', function() {
-                abrirModal(this.src);
-            });
-            
-            div.appendChild(img);
-            recomendacionesGrid.appendChild(div);
+        // Permite abrir el modal al hacer click en la recomendación
+        img.addEventListener('click', function() {
+            abrirModal(this.src);
         });
+        
+        div.appendChild(img);
+        recomendacionesGrid.appendChild(div);
+    });
+    
+    // Actualizar texto del botón según el dispositivo
+    if (!esDesktop) {
+        verMasBtn.textContent = 'Ver más imágenes';
     }
+}
 });
 
 // MENÚ HAMBURGUESA - PRINCIPAL
@@ -341,49 +351,6 @@ function updateSizeIndicator() {
     }
 }
 
-// Función para simular pantalla móvil (solo para demo)
-function simulateMobile() {
-    window.resizeTo(400, 800); // Cambia tamaño de ventana
-    setTimeout(() => {
-        const hamburger = document.getElementById('Hamburguesa-principal');
-        hamburger.checked = true; // Abre menú automáticamente
-    }, 500); // Espera 500ms para que se redimensione
-}
-
-// Función para abrir/cerrar el menú hamburguesa (demo)
-function toggleHamburger() {
-    const hamburger = document.getElementById('Hamburguesa-principal');
-    hamburger.checked = !hamburger.checked; // Alterna estado
-    
-    if (hamburger.checked) {
-        alert('Menú hamburguesa abierto');
-    } else {
-        alert('Menú hamburguesa cerrado');
-    }
-}
-
-// Función para abrir/cerrar el submenú de categorías (demo)
-function toggleCategories() {
-    const categories = document.getElementById('menu-opciones');
-    categories.checked = !categories.checked;
-    
-    if (categories.checked) {
-        alert('Submenú de categorías abierto');
-    } else {
-        alert('Submenú de categorías cerrado');
-    }
-}
-
-// Función para reiniciar la demo
-function resetDemo() {
-    const hamburger = document.getElementById('Hamburguesa-principal');
-    const categories = document.getElementById('menu-opciones');
-    hamburger.checked = false;
-    categories.checked = false;
-    window.resizeTo(1024, 768); // Tamaño por defecto
-    alert('Demo reiniciada - Menú cerrado y tamaño restablecido');
-}
-
 //  EVENTOS PARA MEJOR EXPERIENCIA EN MÓVIL
 
 // Cerrar menú al hacer clic en enlaces (solo para demo)
@@ -417,3 +384,25 @@ window.addEventListener('resize', updateSizeIndicator);
 updateSizeIndicator(); // Llamada inicial
 
 
+// Variables para el modal "Ver más"
+const modalVerMas = document.getElementById('modal-ver-mas');
+const cerrarModalVerMas = document.querySelector('.cerrar-modal-ver-mas');
+const recomendacionesGridVerMas = document.getElementById('recomendaciones-grid-ver-mas');
+const verMasBtn = document.getElementById('ver-mas-btn');
+
+// Event listener para el botón "Ver más"
+verMasBtn.addEventListener('click', function() {
+    abrirModalVerMas();
+});
+
+// Cerrar modal "Ver más"
+cerrarModalVerMas.addEventListener('click', function() {
+    modalVerMas.style.display = 'none';
+});
+
+// Cerrar modal "Ver más" al hacer clic fuera
+window.addEventListener('click', function(event) {
+    if (event.target === modalVerMas) {
+        modalVerMas.style.display = 'none';
+    }
+});
