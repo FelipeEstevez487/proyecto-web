@@ -184,14 +184,6 @@ h1 {
     padding: 0.5rem 0;
 }
 
-.menu-desplegable__opciones {
-    display: block;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: inherit;
-    white-space: nowrap;
-}
-
 #menu-opciones {
     display: none;
 }
@@ -391,18 +383,6 @@ h1 {
         display: flex;
     }
     
-    .menu-toggle:checked + .hamburger-button .hamburger-line:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
-    }
-    
-    .menu-toggle:checked + .hamburger-button .hamburger-line:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .menu-toggle:checked + .hamburger-button .hamburger-line:nth-child(3) {
-        transform: rotate(-45deg) translate(8px, -8px);
-    }
-    
     .nav {
         justify-content: center;
         width: 100%;
@@ -595,21 +575,12 @@ h1 {
     box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
 
-.btn-flotante .btn-texto {
-    font-weight: bold;
-    display: inline;
-}
-
 @media (max-width: 768px) {
     .btn-flotante {
         width: 50px;
         height: 50px;
         padding: 0;
         border-radius: 50%;
-    }
-    
-    .btn-flotante .btn-texto {
-        display: none;
     }
 }
 
@@ -922,33 +893,18 @@ h1 {
 .boton-descarga-hd:hover {
     background-color: #12b154a4;
 }
-
-/* ===== BOTÓN VOLVER ===== */
-.boton-volver {
-    padding: 12px 25px;
-    background-color: #555;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-left: 10px;
-    transition: background-color 0.2s;
-}
-
-.boton-volver:hover {
-    background-color: #333;
-}
-
 /* ===== RESPONSIVE MODAL ===== */
 
 /* TABLET HORIZONTAL (825px - 1200px) */
 @media (max-width: 1200px) {
     .modal-contenido {
         max-width: 95%;
+    }
+}
+
+@media (max-width: 1050px) {
+    .menu-desplegable ul li a {
+        font-size: 1.0rem;
     }
 }
 
@@ -959,7 +915,11 @@ h1 {
         max-height: 90vh;
         width: 95%;
     }
-    
+
+    .menu-desplegable ul li a {
+        font-size: 1.3rem;
+    }
+
     .imagen-principal {
         flex: none;
         width: 100%;

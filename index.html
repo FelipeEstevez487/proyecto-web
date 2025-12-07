@@ -44,10 +44,10 @@
             <span class="hamburger-line"></span>
         </label>
 
-        <div class="contenedor__content">
+        <div class="contenedor__content" aria-label="Botones">
             <nav class="nav" role="navigation" aria-label="Navegación principal">
                 <ul class="nav__lista">
-                    <li><a class="nav__vínculo" href="#">Inicio</a></li>
+                    <li><a class="nav__vínculo" href="#" aria-label="Boton de inicio">Inicio</a></li>
                     <li class="nav__item--desplegable">
                         <div class="Hamburguesa" aria-label="Menú de categorías">
                             <input type="checkbox" id="menu-opciones">
@@ -56,17 +56,17 @@
                             </label>
                             <div class="menu-desplegable" aria-label="Lista de categorías">
                                 <ul>
-                                    <li><a class="menu-desplegable__opciones" href="HTML/Naturaleza.html" id="Naturaleza">Naturaleza</a></li>
-                                    <li><a class="menu-desplegable__opciones" href="HTML/Anime.html" id="Anime">Anime</a></li>
-                                    <li><a class="menu-desplegable__opciones" href="HTML/Pixel-Art.html" id="Pixel-Art">Pixel Art</a></li>
-                                    <li><a class="menu-desplegable__opciones" href="HTML/CGI-3D.html" id="3D-CDI">3D / CGI</a></li>
-                                    <li><a class="menu-desplegable__opciones" href="HTML/Fotografia.html" id="Fotografía">Fotografía</a></li>
+                                    <li><a aria-label="Categoria Naturaleza" class="menu-desplegable__opciones" href="HTML/Naturaleza.html" id="Naturaleza">Naturaleza</a></li>
+                                    <li><a aria-label="Categoria Anime" class="menu-desplegable__opciones" href="HTML/Anime.html" id="Anime">Anime</a></li>
+                                    <li><a aria-label="Categoria Pixel-Art" class="menu-desplegable__opciones" href="HTML/Pixel-Art.html" id="Pixel-Art">Pixel Art</a></li>
+                                    <li><a aria-label="Categoria 3D-CDI" class="menu-desplegable__opciones" href="HTML/CGI-3D.html" id="3D-CDI">3D / CGI</a></li>
+                                    <li><a aria-label="Categoria Fotografia" class="menu-desplegable__opciones" href="HTML/Fotografia.html" id="Fotografía">Fotografía</a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
-                    <li><a class="nav__vínculo" href="HTML/Artistas.html">Artistas</a></li>
-                    <li><a class="nav__vínculo" id="nuevo-contenido" href="HTML/nuevo-contenido.html">Nuevo Contenido</a></li>
+                    <li><a class="nav__vínculo" href="HTML/Artistas.html" aria-label="Artistas">Artistas</a></li>
+                    <li><a class="nav__vínculo" id="nuevo-contenido" href="HTML/nuevo-contenido.html" aria-label="Nuevo contenido">Nuevo Contenido</a></li>
                 </ul>
             </nav>
         </div>
@@ -126,7 +126,6 @@
     
     <a href="#boton-inicio" class="btn-flotante" aria-label="Volver al inicio">
         <i class="fas fa-arrow-up"></i>
-        <span class="btn-texto">Subir</span>
     </a>
     
     <!-- Modal principal -->
@@ -137,8 +136,8 @@
                 <img id="imagen-ampliada" src="" alt="Imagen ampliada">
             </figure>
             <div class="info-recomendaciones">
-                <section class="informacion-imagen">
-                    <h3 id="titulo-imagen">Título de la imagen</h3>
+                <section class="informacion-imagen" aria-label="Datos y opciones con la imagen">
+                    <h3 id="titulo-imagen" aria-label="título de la imagen">Título de la imagen</h3>
                     <div class="detalles-imagen">
                         <p><strong>Artista:</strong> <span id="artista-imagen">Nombre del artista</span></p>
                         <p><strong>Categoría:</strong> <span id="categoria-imagen">Categoría</span></p>
@@ -163,7 +162,9 @@
                     <div class="recomendaciones-grid" id="recomendaciones-grid">
                         <!-- Imágenes recomendadas se cargarán aquí dinámicamente -->
                     </div>
-                    <button class="ver-mas-btn" id="ver-mas-btn"><a href="HTML/ver_mas_simulacion.html" class="ver">Ver más</a></button>
+                    <button class="ver-mas-btn" id="ver-mas-btn">
+                        <a href="HTML/ver_mas_simulacion.html" target="_blank" class="ver" aria-label="Página para ver mas imágenes">Ver más</a>
+                    </button>
                 </section>
             </div>
         </div>

@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const imagenHd = document.getElementById('imagen-hd'); // Imagen HD en página de descarga
     const recomendacionesGrid = document.getElementById('recomendaciones-grid'); // Contenedor de recomendaciones
     const cerrarModal = document.querySelector('.cerrar-modal'); // Botón para cerrar modal
-    const btnVolver = document.getElementById('btn-volver'); // Botón volver de descarga
     const btnDescargaDirecta = document.getElementById('btn-descarga-directa'); // Botón descarga directa
     
     // ===== BASE DE DATOS DE IMÁGENES =====
@@ -228,7 +227,7 @@ function generarRecomendaciones(srcActual) {
     
     // Determinar cuántas imágenes mostrar según el tamaño de pantalla
     const esDesktop = window.innerWidth > 825;
-    const cantidad = esDesktop ? 4 : 0; // 4 en desktop, 0 en mobile (porque se oculta)
+    const cantidad = esDesktop ? 2 : 0; // 2 en desktop, 0 en mobile (porque se oculta)
     
     // Tomar las primeras 'cantidad' imágenes
     const recomendaciones = mezcladas.slice(0, cantidad);
