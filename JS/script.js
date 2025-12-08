@@ -9,13 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('modal');
     // Obtiene la imagen ampliada dentro del modal
     const imagenAmpliada = document.getElementById('imagen-ampliada');
-    // Obtiene el contenedor de recomendaciones
+
     const recomendacionesGrid = document.getElementById('recomendaciones-grid');
-    // Obtiene el botón para cerrar el modal
     const cerrarModal = document.querySelector('.cerrar-modal');
-    // Obtiene el campo de entrada del buscador
     const inputBuscar = document.getElementById('buscadorInput');
-    // Obtiene el botón del buscador
     const botonBuscar = document.getElementById('buscadorButton');
     
     // ===== BASE DE DATOS =====
@@ -35,12 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Objeto para almacenar los likes que el usuario da durante la sesión
     const likesEstado = {};
     
-    // ===== BÚSQUEDA =====
+    // BÚSQUEDA 
     // Función que maneja la búsqueda (actualmente solo muestra un alert con el texto)
     function buscar() {
         // Elimina espacios en blanco al inicio y final del texto
         const texto = inputBuscar.value.trim();
-        // Si hay texto, muestra un alert
         if (texto) {
             alert(`Estás buscando: "${texto}"`);
         }
@@ -48,14 +44,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Ejecuta la búsqueda al presionar Enter en el input
     inputBuscar.addEventListener('keypress', function(e) {
-        // Verifica si la tecla presionada es Enter
         if (e.key === 'Enter') buscar();
     });
     
     // Ejecuta la búsqueda al hacer clic en el botón
     botonBuscar.addEventListener('click', buscar);
     
-    // ===== ABRIR IMAGEN =====
+    // ABRIR IMAGEN
     // Agrega un event listener a cada imagen de la galería
     imagenes.forEach(imagen => {
         imagen.addEventListener('click', function() {
@@ -64,23 +59,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ===== CERRAR MODAL =====
+    // CERRAR MODAL
     // Cierra el modal al hacer clic en el botón de cerrar
     cerrarModal.addEventListener('click', function() {
-        // Oculta el modal cambiando su display a 'none'
         modal.style.display = 'none';
     });
     
     // Cierra el modal si se hace clic fuera de su contenido
     window.addEventListener('click', function(event) {
-        // Si el clic fue directamente en el modal (fondo oscuro)
         if (event.target === modal) {
             modal.style.display = 'none';
         }
     });
     
-    // ===== BOTÓN ME GUSTA =====
-    // Agrega funcionalidad al botón de "Me gusta"
+    // BOTÓN ME GUSTA
     document.getElementById('boton-me-gusta').addEventListener('click', function() {
         // Obtiene la ruta de la imagen actualmente ampliada
         const src = imagenAmpliada.getAttribute('src');
@@ -89,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Si no hay un like guardado para esta imagen en la sesión actual
         if (likesEstado[src] === undefined) {
-            // Incrementa el contador de likes (suma 1 a los likes originales)
+            // Incrementa el contador de likes
             likesEstado[src] = (info.likes || 0) + 1;
             // Actualiza el texto del botón con el nuevo número y cambia el ícono a corazón lleno
             this.innerHTML = `<i class="fas fa-heart"></i> ${likesEstado[src]}`;
@@ -107,13 +99,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // ===== BOTÓN COMPARTIR =====
+    //  BOTÓN COMPARTIR
     // Agrega funcionalidad al botón de compartir (actualmente solo muestra un alert)
     document.getElementById('boton-compartir').addEventListener('click', function() {
         alert('Hiciste click en compartir');
     });
     
-    // ===== BOTÓN DESCARGAR =====
+    //  BOTÓN DESCARGAR
     // Agrega funcionalidad al botón de descargar
     document.getElementById('boton-descargar').addEventListener('click', function() {
         // Obtiene la ruta de la imagen actual

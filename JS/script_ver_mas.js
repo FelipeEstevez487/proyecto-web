@@ -3,13 +3,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     
         // ===== MEZCLAR IMÁGENES AL CARGAR =====
-    function mezclarArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+        function mezclarArray(array) { // Función para mezclar aleatoriamente un array
+            for (let i = array.length - 1; i > 0; i--) { // Recorre el array de FINAL a INICIO
+                const j = Math.floor(Math.random() * (i + 1)); // Genera un índice ALEATORIO entre 0 e i
+                [array[i], array[j]] = [array[j], array[i]]; // INTERCAMBIA los elementos en posiciones i y j
+            }
+            return array; // Devuelve el array ya mezclado
         }
-        return array;
-    }
     
     const galeria = document.querySelector('.galeria');
     if (galeria) {
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ===== VARIABLES PRINCIPALES =====
+    // VARIABLES PRINCIPALES
     const imagenes = document.querySelectorAll('.imagen-galeria');
     const modal = document.getElementById('modal');
     const imagenAmpliada = document.getElementById('imagen-ampliada');
