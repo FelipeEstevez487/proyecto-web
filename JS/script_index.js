@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             likes: 0,
             hdUrl: "IMG/imagenes-hd/1.jpg"
         },
-        // ... resto de imágenes
+        //  ... resto de imágenes que no pondré porque no es necesario...
     };
     
     const likesEstado = {};

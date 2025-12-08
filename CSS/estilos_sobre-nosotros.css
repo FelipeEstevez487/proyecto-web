@@ -512,14 +512,14 @@ body {
 /* ===== ESTILOS PARA SOBRE NOSOTROS ===== */
 
 /* Contenedor principal de la página */
-.sobre-nosotros-container {
+.sobre-nosotros {
     max-width: 1200px;
     margin: 3rem auto;
     padding: 0 2rem;
 }
 
-/* Sección hero - encabezado principal */
-.sobre-hero {
+/* Sección mensaje - encabezado principal */
+.sobre-nosotros__mensaje {
     text-align: center;
     padding: 3rem 2rem;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -528,7 +528,7 @@ body {
     border-left: 5px solid #d41e1e;
 }
 
-.sobre-hero h1 {
+.sobre-nosotros__mensaje h1 {
     color: #d41e1e;
     margin-bottom: 1.5rem;
     font-size: 2.8rem;
@@ -536,7 +536,7 @@ body {
     font-weight: 700;
 }
 
-.sobre-hero p {
+.sobre-nosotros__mensaje p {
     font-size: 1.2rem;
     color: #333;
     max-width: 800px;
@@ -545,7 +545,7 @@ body {
 }
 
 /* Contenido principal de texto */
-.sobre-contenido {
+.sobre-nosotros__contenido {
     background: white;
     padding: 2.5rem;
     border-radius: 15px;
@@ -553,7 +553,7 @@ body {
     margin-bottom: 3rem;
 }
 
-.sobre-contenido h2 {
+.sobre-nosotros__contenido h2 {
     color: #d41e1e;
     margin-bottom: 1.5rem;
     font-size: 2rem;
@@ -563,19 +563,19 @@ body {
     font-weight: 700;
 }
 
-.sobre-contenido p {
+.sobre-nosotros__contenido p {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #444;
     margin-bottom: 1.5rem;
 }
 
-.sobre-contenido ul {
+.sobre-nosotros__contenido ul {
     margin: 1.5rem 0;
     padding-left: 2rem;
 }
 
-.sobre-contenido li {
+.sobre-nosotros__contenido li {
     margin-bottom: 1rem;
     font-size: 1.1rem;
     line-height: 1.6;
@@ -664,7 +664,7 @@ body {
 }
 
 /* Footer específico para Sobre Nosotros */
-.sobre-footer {
+.sobre-nosotros-footer {
     background: #2c2c2c;
     color: white;
     padding: 3rem 2rem;
@@ -672,7 +672,7 @@ body {
     border-top: 5px solid #d41e1e;
 }
 
-.footer-content {
+.sobre-nosotros-footer__contenido{
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
@@ -680,7 +680,7 @@ body {
     gap: 2rem;
 }
 
-.footer-section h3 {
+.sobre-nosotros-footer__seccion h3 {
     color: #d41e1e;
     margin-bottom: 1.5rem;
     font-size: 1.4rem;
@@ -688,7 +688,7 @@ body {
     font-weight: 700;
 }
 
-.footer-section p, .footer-section a {
+.sobre-nosotros-footer__seccion p, .sobre-nosotros-footer__seccion a {
     color: #bbb;
     line-height: 1.6;
     margin-bottom: 0.8rem;
@@ -696,11 +696,11 @@ body {
     text-decoration: none;
 }
 
-.footer-section a:hover {
+.sobre-nosotros-footer__seccion a:hover {
     color: #d41e1e;
 }
 
-.copyright {
+.sobre-nosotros-footer__copyright {
     text-align: center;
     padding-top: 2rem;
     margin-top: 2rem;
@@ -713,20 +713,20 @@ body {
 
 /* Tablets y dispositivos medianos */
 @media (max-width: 768px) {
-    .sobre-nosotros-container {
+    .sobre-nosotros {
         padding: 0 1rem;
         margin: 2rem auto;
     }
 
-    .sobre-hero {
+    .sobre-nosotros__mensaje {
         padding: 2rem 1rem;
     }
 
-    .sobre-hero h1 {
+    .sobre-nosotros__mensaje h1 {
         font-size: 2.2rem;
     }
 
-    .sobre-contenido {
+    .sobre-nosotros__contenido {
         padding: 1.5rem;
     }
 
@@ -738,7 +738,7 @@ body {
         padding: 2rem 1rem;
     }
 
-    .footer-content {
+    .sobre-nosotros-footer__contenido {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
@@ -746,15 +746,15 @@ body {
 
 /* Teléfonos móviles pequeños */
 @media (max-width: 480px) {
-    .sobre-hero h1 {
+    .sobre-nosotros__mensaje h1 {
         font-size: 1.8rem;
     }
 
-    .sobre-contenido h2 {
+    .sobre-nosotros__contenido h2 {
         font-size: 1.6rem;
     }
 
-    .sobre-contenido p {
+    .sobre-nosotros__contenido p {
         font-size: 1rem;
     }
 
