@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Pictly</title>
+    <link rel="icon" type="image/x-icon" href="/IMG/icono/icono2.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/estilos_sobre-nosotros.css">
+
+</head>
+<body>
+    <!-- HEADER (NO MODIFICAR) -->
+    <header class="contenedor" aria-label="Encabezado principal">
+        <div class="contenedor__header">
+            <a href="/index.html" id="logoYtitulo" aria-label="Index con ícono">
+                <div class="contenedor__TiMa" role="img" aria-label="Logotipo y título del sitio" id="boton-inicio">        
+                    <h1 class="contenedor__titulo">Pictly</h1>
+                    <figure>
+                        <img class="contenedor__icono" src="IMG/icono/icono2.png" alt="Ícono de Pictly" aria-label="Ícono de Pictly">
+                    </figure>
+                </div>
+            </a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Alternar menú de navegación">
+            <label for="menu-toggle" class="hamburger-button" aria-label="Abrir menú de navegación">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </label>
+
+            <div class="contenedor__content" aria-label="Botones">
+                <nav class="nav" role="navigation" aria-label="Navegación principal">
+                    <ul class="nav__lista">
+                        <li><a class="nav__vínculo" href="/index.html" aria-label="Botón de inicio">Inicio</a></li>
+                        <li class="nav__item--desplegable">
+                            <div class="Hamburguesa" aria-label="Menú de categorías">
+                                <input type="checkbox" id="menu-opciones">
+                                <label for="menu-opciones" class="opciones" aria-label="Abrir menú de categorías">
+                                    Categorías
+                                </label>
+                                <div class="menu-desplegable" aria-label="Lista de categorías">
+                                    <ul>
+                                        <li><a aria-label="Categoria Naturaleza" class="menu-desplegable__opciones" href="Naturaleza.html" id="Naturaleza">Naturaleza</a></li>
+                                        <li><a aria-label="Categoria Anime" class="menu-desplegable__opciones" href="Anime.html" id="Anime">Anime</a></li>
+                                        <li><a aria-label="Categoria Pixel-Art" class="menu-desplegable__opciones" href="Pixel-Art.html" id="Pixel-Art">Pixel Art</a></li>
+                                        <li><a aria-label="Categoria 3D-CDI" class="menu-desplegable__opciones" href="CGI-3D.html" id="3D-CDI">3D / CGI</a></li>
+                                        <li><a aria-label="Categoria Fotografia" class="menu-desplegable__opciones" href="Fotografia.html" id="Fotografía">Fotografía</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a class="nav__vínculo" id="nuevo-contenido" href="nuevo-contenido.html" aria-label="Nuevo contenido">Nuevo Contenido</a></li>
+                        <li><a class="nav__vínculo" href="#" aria-label="acerca de la nosotros, Pictly">Sobre nosotros</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+        <div class="buscador-contenedor" id="buscadorContainer" aria-label="Buscador del sitio">
+            <input type="text" class="buscador-input" id="buscadorInput" placeholder="Buscar..." aria-label="Campo de búsqueda">
+            <button class="buscador-button" id="buscadorButton" aria-label="Buscar">
+                <svg class="buscador-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+    
+    <!-- MAIN CONTENT -->
+    <main>
+        <div class="sobre-nosotros-container">
+            <section class="sobre-hero">
+                <h1>Sobre Pictly</h1>
+                <p>Pictly es una plataforma independiente dedicada a proporcionar imágenes de alta calidad, completamente gratuitas y sin marca de agua. Creemos en el acceso libre al arte visual mientras respetamos y damos crédito a los artistas que hacen posible esta colección.</p>
+            </section>
+
+            <section class="sobre-contenido">
+                <h2>Nuestra Filosofía</h2>
+                <p>En un mundo donde el contenido visual es cada vez más importante, nos propusimos crear un espacio donde cualquier persona pueda encontrar imágenes excepcionales para sus proyectos personales, educativos o creativos, sin las restricciones habituales de licencias costosas o marcas de agua invasivas.</p>
+                
+                <p>Lo que nos diferencia:</p>
+                <ul>
+                    <li><strong>Independencia:</strong> Somos un proyecto autónomo, no vinculado a grandes corporaciones, lo que nos permite priorizar la calidad sobre el lucro.</li>
+                    <li><strong>Calidad sobre cantidad:</strong> Cada imagen en nuestro catálogo pasa por un riguroso proceso de selección para garantizar resolución, composición y valor artístico excepcionales.</li>
+                    <li><strong>Gratuidad real:</strong> Todas nuestras imágenes son 100% gratuitas. No hay suscripciones, planes premium ni pagos ocultos.</li>
+                    <li><strong>Sin marcas de agua:</strong> Las imágenes se descargan limpias, listas para usar en cualquier proyecto.</li>
+                    <li><strong>Crédito a los artistas:</strong> Cada imagen incluye información completa sobre su creador, fomentando el reconocimiento merecido.</li>
+                </ul>
+
+                <div class="valores-grid">
+                    <div class="valor-card">
+                        <h3><i class="fas fa-crown"></i> Calidad Premium</h3>
+                        <p>Seleccionamos minuciosamente cada imagen para garantizar la máxima resolución y valor artístico, priorizando obras que inspiren y emocionen.</p>
+                    </div>
+                    
+                    <div class="valor-card">
+                        <h3><i class="fas fa-heart"></i> Para la Comunidad</h3>
+                        <p>Creemos en el acceso democrático al arte visual. Nuestra plataforma existe para servir a creadores, educadores y soñadores por igual.</p>
+                    </div>
+                    
+                    <div class="valor-card">
+                        <h3><i class="fas fa-award"></i> Ética Primero</h3>
+                        <p>Mantenemos un compromiso inquebrantable con los derechos de los artistas, asegurando que cada creador reciba el reconocimiento que merece.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="compromiso-section">
+                <h2>Nuestro Compromiso</h2>
+                <div class="compromiso-grid">
+                    <div class="compromiso-item">
+                        <i class="fas fa-download"></i>
+                        <h4>Descargas Ilimitadas</h4>
+                        <p>Todas las imágenes disponibles para descarga inmediata sin límites.</p>
+                    </div>
+                    
+                    <div class="compromiso-item">
+                        <i class="fas fa-user-check"></i>
+                        <h4>Crédito a Artistas</h4>
+                        <p>Cada imagen lleva el nombre del artista, promoviendo su trabajo.</p>
+                    </div>
+                    
+                    <div class="compromiso-item">
+                        <i class="fas fa-ban"></i>
+                        <h4>Sin Marca de Agua</h4>
+                        <p>Imágenes limpias, listas para usar en cualquier proyecto personal o comercial.</p>
+                    </div>
+                    
+                    <div class="compromiso-item">
+                        <i class="fas fa-sync-alt"></i>
+                        <h4>Contenido Actualizado</h4>
+                        <p>Añadimos regularmente nuevas obras para mantener fresca nuestra colección.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sobre-contenido">
+                <h2>Para Artistas y Creadores</h2>
+                <p>Si eres artista visual y deseas colaborar con nosotros, valoramos profundamente tu trabajo. Pictly funciona como un puente entre creadores y la comunidad, asegurando que tu arte llegue a más personas mientras mantienes el crédito y reconocimiento por tu obra.</p>
+                
+                <p>Nuestro proceso garantiza que:</p>
+                <ul>
+                    <li>Todas las imágenes se muestran con tu nombre y enlace a tu portafolio.</li>
+                    <li>Mantenemos la integridad de tu trabajo sin modificaciones no autorizadas.</li>
+                    <li>Promovemos activamente tu perfil entre nuestra comunidad.</li>
+                    <li>Respetamos completamente tus derechos de autor y preferencias de licencia.</li>
+                </ul>
+                
+                <p>Pictly es más que una galería de imágenes; es una comunidad construida sobre el respeto mutuo entre artistas y amantes del arte visual.</p>
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="sobre-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Pictly</h3>
+                <p>Una plataforma independiente dedicada al arte visual de alta calidad, gratuita y accesible para todos.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <a href="/index.html">Inicio</a>
+                <a href="nuevo-contenido.html">Nuevo Contenido</a>
+                <a href="#">Sobre Nosotros</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>¿Preguntas o colaboraciones?</p>
+                <p>contacto@pictly.com</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Pictly. Todos los derechos reservados. | Creado con pasión por el arte visual.</p>
+        </div>
+    </footer>
+    
+    <a href="#boton-inicio" class="boton-flotante" aria-label="Volver al inicio">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script src="script_index.js"></script>
+</body>
+</html>

@@ -7,16 +7,15 @@
     <link rel="icon" type="image/x-icon" href="/IMG/icono/icono2.png">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-    href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+    <!-- Ícones de font-awasome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Cardo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
 
     <!-- Roboto Condensed-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,18 +27,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="estilos-index.css">
+    <link rel="stylesheet" href="/CSS/estilos-index.css">
 </head>
 <body>
-    <h1>Anime</h1>
 <header class="contenedor" aria-label="Encabezado principal">
     <div class="contenedor__header">
-        <div class="contenedor__TiMa" role="img" aria-label="Logotipo y título del sitio" id="boton-inicio">        
+
+        <a href="/index.html" id="logoYtitulo" aria-label="Index con ícono">
+                    <div class="contenedor__TiMa" role="img" aria-label="Logotipo y título del sitio" id="boton-inicio">        
             <h1 class="contenedor__titulo">Pictly</h1>
             <figure>
                 <img class="contenedor__icono" src="IMG/icono/icono2.png" alt="Ícono de Pictly" aria-label="Ícono de Pictly">
             </figure>
         </div>
+        </a>
 
         <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Alternar menú de navegación">
         <label for="menu-toggle" class="hamburger-button" aria-label="Abrir menú de navegación">
@@ -48,10 +49,10 @@
             <span class="hamburger-line"></span>
         </label>
 
-        <div class="contenedor__content">
+        <div class="contenedor__content" aria-label="Botones">
             <nav class="nav" role="navigation" aria-label="Navegación principal">
                 <ul class="nav__lista">
-                    <li><a class="nav__vínculo" href="/index.html">Inicio</a></li>
+                    <li><a class="nav__vínculo" href="/index.html" aria-label="Boton de inicio">Inicio</a></li>
                     <li class="nav__item--desplegable">
                         <div class="Hamburguesa" aria-label="Menú de categorías">
                             <input type="checkbox" id="menu-opciones">
@@ -60,18 +61,17 @@
                             </label>
                             <div class="menu-desplegable" aria-label="Lista de categorías">
                                 <ul>
-                                    <li><a class="menu-desplegable__opciones" href="Naturaleza.html" id="Naturaleza">Naturaleza</a></li>
-                                    <li><a class="menu-desplegable__opciones" href="#" id="Anime">Anime</a></li>
-                                    <li><a class="menu-desplegable__opciones" href="Pixel-Art.html" id="Pixel-Art">Pixel Art</a></li>
-                                    <li><a class="menu-desplegable__opciones" href="CGI-3D.html" id="3D-CDI">3D / CGI</a></li>
-                                    <li><a class="menu-desplegable__opciones" href="Fotografia.html" id="Fotografía">Fotografía</a></li>
+                                    <li><a aria-label="Categoria Naturaleza" class="menu-desplegable__opciones" href="Naturaleza.html" id="Naturaleza">Naturaleza</a></li>
+                                    <li><a aria-label="Categoria Anime" class="menu-desplegable__opciones" href="#" id="Anime">Anime</a></li>
+                                    <li><a aria-label="Categoria Pixel-Art" class="menu-desplegable__opciones" href="Pixel-Art.html" id="Pixel-Art">Pixel Art</a></li>
+                                    <li><a aria-label="Categoria 3D-CDI" class="menu-desplegable__opciones" href="CGI-3D.html" id="3D-CDI">3D / CGI</a></li>
+                                    <li><a aria-label="Categoria Fotografia" class="menu-desplegable__opciones" href="Fotografia.html" id="Fotografía">Fotografía</a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
-                    <li><a class="nav__vínculo" href="Artistas.html">Artistas</a></li>
-                    <li><a class="nav__vínculo" id="nuevo-contenido" href="">Nuevo Contenido</a></li>
-
+                    <li><a class="nav__vínculo" id="nuevo-contenido" href="nuevo-contenido.html" aria-label="Nuevo contenido">Nuevo Contenido</a></li>
+                    <li><a class="nav__vínculo" href="Sobre_nosotros.html" aria-label="acerca de la nosotros, Pictly">Sobre nosotros</a></li>
                 </ul>
             </nav>
         </div>
@@ -91,136 +91,222 @@
         <!-- Galería Imágenes -->
         <section class="galeria" aria-label="Galeria de imágenes">
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img2.png" alt="Retrato urbano" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img1.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img3.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img2.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img4.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img3.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img5.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img4.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img6.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img5.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img7.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img6.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img8.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img7.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img9.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img8.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img10.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img9.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img11.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img10.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img11.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img12.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img12.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img13.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img13.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img14.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img14.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img15.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img15.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img16.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img16.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img17.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img17.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img18.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img18.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img19.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img19.png" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img20.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img20.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img21.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img21.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img22.jpg  " alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img22.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img23.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img23.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img24.png" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img24.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img25.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img25.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img26.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img26.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img27.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img27.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img28.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img28.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img29.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img29.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img30.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img31.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img30.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img32.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes_anime/img1.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_anime/img33.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img34.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img35.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img36.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img37.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img38.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img39.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img40.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img41.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img42.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img43.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img44.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img45.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img46.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img47.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img48.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img49.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img50.jpg" alt="Retrato urbano" class="imagen-galeria">
+            </div>
+
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_anime/img51.jpg" alt="Retrato urbano" class="imagen-galeria">
             </div>
         </section>
     </main>
-<a href="#boton-inicio" class="btn-flotante" aria-label="Volver al inicio">
-    <i class="fas fa-arrow-up"></i>  <!-- Icono de flecha arriba -->
-</a>
-    <!-- Modal para mostrar imagen y recomendaciones -->
-    <div id="modal" class="modal">
-        <span class="cerrar-modal" aria-label="Cerrar ventana de modal">&times;</span>
-        <div class="modal-contenido">
-            <figure class="imagen-principal">
-                <img id="imagen-ampliada" src="" alt="Imagen ampliada">
-            </figure>
-            <div class="info-recomendaciones">
-                <section class="informacion-imagen">
-                    <h3 id="titulo-imagen">Título de la imagen</h3>
-                    <div class="detalles-imagen">
-                        <p><strong>Artista:</strong> <span id="artista-imagen">Nombre del artista</span></p>
-                        <p><strong>Categoría:</strong> <span id="categoria-imagen">Categoría</span></p>
-                        <p><strong>Publicado:</strong> <span id="fecha-imagen">Fecha de publicación</span></p>
-                    </div>
-                    <div class="botones-accion">
-                        <button id="btn-me-gusta" class="boton-accion boton-like" aria-label="Boton de Me gusta">
-                            <i class="far fa-heart"></i> Me gusta
-                        </button>
-                        <button id="btn-compartir" class="boton-accion boton-compartir" aria-label="Botón de compartir">
-                            <i class="fas fa-share-alt"></i> Compartir
-                        </button>
-                        <button id="btn-descargar" class="boton-accion boton-descargar" aria-label="Botón de descargas">
-                            <i class="fas fa-download"></i> Descargar
-                        </button>
-                    </div>
-                </section>
+    
+    <a href="#boton-inicio" class="boton-flotante" aria-label="Volver al inicio">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+        <!-- Modal principal -->
+        <div id="modal" class="modal" role="dialog">
+            <span class="cerrar-modal" aria-label="Cerrar ventana de modal">&times;</span>
+            <div class="modal-contenido">
+                <figure class="imagen-principal">
+                    <img id="imagen-ampliada" src="" alt="Imagen ampliada">
+                </figure>
+                <div class="info-recomendaciones">
+                    <section class="informacion-imagen" aria-label="Datos y opciones con la imagen">
+                        <h3 id="titulo-imagen" aria-label="título de la imagen">Título de la imagen</h3>
+                        <div class="detalles-imagen">
+                            <p><strong>Artista:</strong> <span id="artista-imagen">Nombre del artista</span></p>
+                            <p><strong>Categoría:</strong> <span id="categoria-imagen">Categoría</span></p>
+                            <p><strong>Publicado:</strong> <span id="fecha-imagen">Fecha de publicación</span></p>
+                        </div>
+                        <div class="botones-accion">
+                            <button id="boton-me-gusta" class="boton-accion boton-like" aria-label="Botón de Me gusta">
+                                <i class="far fa-heart"></i> Me gusta
+                            </button>
+                            <button id="boton-compartir" class="boton-accion boton-compartir" aria-label="Botón de compartir">
+                                <i class="fas fa-share-alt"></i> Compartir
+                            </button>
+                            <button id="boton-descargar" class="boton-accion boton-descargar" aria-label="Botón de descargas">
+                                <i class="fas fa-download"></i> Descargar
+                            </button>
+                        </div>
+                    </section>
 
-                <!-- Recomendaciones -->
-                <section class="recomendaciones" aria-label="Imágenes recomendadas">
-                    <h3>Imágenes Recomendadas</h3>
-                    <div class="recomendaciones-grid" id="recomendaciones-grid">
-                        <!-- Imágenes recomendadas  -->
-                    </div>
-                </section>
+                    <!-- Sección de recomendaciones -->
+                    <section class="recomendaciones" aria-label="Imágenes recomendadas">
+                        <h3 class="titulo-recomendaciones">Imágenes Recomendadas</h3>
+                        <div class="recomendaciones-grid" id="recomendaciones-grid">
+                            <!-- Imágenes recomendadas se cargarán aquí dinámicamente -->
+                        </div>
+                        <button class="ver-mas-boton" id="ver-mas-boton">
+                            <a href="ver_mas_simulacion.html" target="_blank" class="ver" aria-label="Página para ver mas imágenes">Ver más</a>
+                        </button>
+                    </section>
+                </div>
             </div>
+        </div>
+
+    <!-- Modal "Ver más" -->
+    <div id="modal-ver-mas" class="modal modal-ver-mas" role="dialog">
+        <span class="cerrar-modal cerrar-modal-ver-mas" aria-label="Cerrar ventana">&times;</span>
+        <div class="modal-contenido modal-contenido-ver-mas">
+            <section class="recomendaciones-completas" aria-label="Más imágenes recomendadas">
+                <h2>Más Imágenes Recomendadas</h2>
+                <div class="recomendaciones-grid-ver-mas" id="recomendaciones-grid-ver-mas">
+                    <!-- Más imágenes recomendadas -->
+                </div>
+            </section>
         </div>
     </div>
 
@@ -230,15 +316,19 @@
             <h2>Descargar Imagen en Alta Calidad</h2>
             <img id="imagen-hd" src="" alt="Imagen en alta calidad" class="imagen-hd">
             <div class="botones-descarga">
-                <button id="btn-descarga-directa" class="boton-descarga-hd">
+                <button id="boton-descarga-directa" class="boton-descarga-hd">
                     <i class="fas fa-download"></i>
                     Descargar Imagen HD
+                </button>
+                <button id="boton-volver" class="boton-volver">
+                    <i class="fas fa-arrow-left"></i>
+                    Volver
                 </button>
             </div>
             <p aria-label="Información de la imagen">Esta imagen tiene una resolución de 4000x3000 px y un tamaño de archivo de 8.2 MB</p>
         </article>
     </section>
     
-    <script src="script.js"></script>
+    <script src="/JS/script.js"></script>
 </body>
 </html>

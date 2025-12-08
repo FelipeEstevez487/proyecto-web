@@ -7,16 +7,15 @@
     <link rel="icon" type="image/x-icon" href="/IMG/icono/icono2.png">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-    href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+    <!-- Ícones de font-awasome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Cardo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
 
     <!-- Roboto Condensed-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,19 +26,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/CSS/estilos-index.css">
 
-    <link rel="stylesheet" href="estilos-index.css">
 </head>
 <body>
-    <h1>CGI</h1>
 <header class="contenedor" aria-label="Encabezado principal">
     <div class="contenedor__header">
-        <div class="contenedor__TiMa" role="img" aria-label="Logotipo y título del sitio" id="boton-inicio">        
+
+        <a href="/index.html" id="logoYtitulo" aria-label="Index con ícono">
+                    <div class="contenedor__TiMa" role="img" aria-label="Logotipo y título del sitio" id="boton-inicio">        
             <h1 class="contenedor__titulo">Pictly</h1>
             <figure>
                 <img class="contenedor__icono" src="IMG/icono/icono2.png" alt="Ícono de Pictly" aria-label="Ícono de Pictly">
             </figure>
         </div>
+        </a>
 
         <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Alternar menú de navegación">
         <label for="menu-toggle" class="hamburger-button" aria-label="Abrir menú de navegación">
@@ -48,10 +50,10 @@
             <span class="hamburger-line"></span>
         </label>
 
-        <div class="contenedor__content">
+        <div class="contenedor__content" aria-label="Botones">
             <nav class="nav" role="navigation" aria-label="Navegación principal">
                 <ul class="nav__lista">
-                    <li><a class="nav__vínculo" href="/index.html">Inicio</a></li>
+                    <li><a class="nav__vínculo" href="/index.html" aria-label="Boton de inicio">Inicio</a></li>
                     <li class="nav__item--desplegable">
                         <div class="Hamburguesa" aria-label="Menú de categorías">
                             <input type="checkbox" id="menu-opciones">
@@ -60,17 +62,17 @@
                             </label>
                             <div class="menu-desplegable" aria-label="Lista de categorías">
                                 <ul>
-                                    <li><a class="menu-desplegable__opciones" href="Naturaleza.html" id="Naturaleza">Naturaleza</a></li>
-                                    <li><a class="menu-desplegable__opciones" href="Anime.html" id="Anime">Anime</a></li>
-                                    <li><a class="menu-desplegable__opciones" href="Pixel-Art.html" id="Pixel-Art">Pixel Art</a></li>
-                                    <li><a class="menu-desplegable__opciones" href="CGI-3D.html" id="3D-CDI">3D / CGI</a></li>
-                                    <li><a class="menu-desplegable__opciones" href="Fotografia.html" id="Fotografía">Fotografía</a></li>
+                                    <li><a aria-label="Categoria Naturaleza" class="menu-desplegable__opciones" href="Naturaleza.html" id="Naturaleza">Naturaleza</a></li>
+                                    <li><a aria-label="Categoria Anime" class="menu-desplegable__opciones" href="Anime.html" id="Anime">Anime</a></li>
+                                    <li><a aria-label="Categoria Pixel-Art" class="menu-desplegable__opciones" href="Pixel-Art.html" id="Pixel-Art">Pixel Art</a></li>
+                                    <li><a aria-label="Categoria 3D-CDI" class="menu-desplegable__opciones" href="CGI-3D.html" id="3D-CDI">3D / CGI</a></li>
+                                    <li><a aria-label="Categoria Fotografia" class="menu-desplegable__opciones" href="Fotografia.html" id="Fotografía">Fotografía</a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
-                    <li><a class="nav__vínculo" href="Artistas.html">Artistas</a></li>
-                    <li><a class="nav__vínculo" id="nuevo-contenido" href="#">Nuevo Contenido</a></li>
+                    <li><a class="nav__vínculo" id="nuevo-contenido" href="nuevo-contenido.html" aria-label="Nuevo contenido">Nuevo Contenido</a></li>
+                    <li><a class="nav__vínculo" href="Sobre_nosotros.html" aria-label="acerca de la nosotros, Pictly">Sobre nosotros</a></li>
                 </ul>
             </nav>
         </div>
@@ -90,84 +92,346 @@
         <!-- Galería Imágenes -->
         <section class="galeria" aria-label="Galeria de imágenes">
             <div class="imagen-contenido">
-                <img src="IMG/imagenes/1.jpg" alt="Paisaje montañoso" class="imagen-galeria">
+                <img src="IMG/imagenes_nuevo-contenido/img1.jpg" alt="Imagen 1" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes/2.jpg" alt="Retrato urbano" class="imagen-galeria">
+                <img src="IMG/imagenes_nuevo-contenido/img2.jpg" alt="Imagen 2" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes/3.jpg" alt="Arquitectura moderna" class="imagen-galeria">
+                <img src="IMG/imagenes_nuevo-contenido/img3.jpg" alt="Imagen 3" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes/4.jpg" alt="Naturaleza abstracta" class="imagen-galeria">
+                <img src="IMG/imagenes_nuevo-contenido/img4.jpg" alt="Imagen 4" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes/5.jpg" alt="Fotografía macro" class="imagen-galeria">
+                <img src="IMG/imagenes_nuevo-contenido/img5.jpg" alt="Imagen 5" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes/6.jpg" alt="Escena nocturna" class="imagen-galeria">
+                <img src="IMG/imagenes_nuevo-contenido/img6.jpg" alt="Imagen 6" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes/7.jpg" alt="Arte digital" class="imagen-galeria">
+                <img src="IMG/imagenes_nuevo-contenido/img7.jpg" alt="Imagen 7" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes/8.jpg" alt="Fotografía callejera" class="imagen-galeria">
+                <img src="IMG/imagenes_nuevo-contenido/img8.jpg" alt="Imagen 8" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes/9.jpg" alt="Paisaje costero" class="imagen-galeria">
+                <img src="IMG/imagenes_nuevo-contenido/img9.jpg" alt="Imagen 9" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes/10.jpg" alt="Retrato artístico" class="imagen-galeria">
+                <img src="IMG/imagenes_nuevo-contenido/img10.jpg" alt="Imagen 10" class="imagen-galeria">
+            </div>
+
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img11.jpg" alt="Imagen 11" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes/11.jpg" alt="Fotografía conceptual" class="imagen-galeria">
+                <img src="IMG/imagenes_nuevo-contenido/img12.jpg" alt="Imagen 12" class="imagen-galeria">
             </div>
             <div class="imagen-contenido">
-                <img src="IMG/imagenes/12.jpg" alt="Abstracto geométrico" class="imagen-galeria">
+                <img src="IMG/imagenes_nuevo-contenido/img13.jpg" alt="Imagen 13" class="imagen-galeria">
             </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img14.jpg" alt="Imagen 14" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img15.jpg" alt="Imagen 15" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img16.jpg" alt="Imagen 16" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img17.jpg" alt="Imagen 17" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img18.jpg" alt="Imagen 18" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img19.jpg" alt="Imagen 19" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img20.jpg" alt="Imagen 20" class="imagen-galeria">
+            </div>
+
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img21.jpg" alt="Imagen 21" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img22.jpg" alt="Imagen 22" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img23.jpg" alt="Imagen 23" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img24.jpg" alt="Imagen 24" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img25.jpg" alt="Imagen 25" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img26.jpg" alt="Imagen 26" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img27.jpg" alt="Imagen 27" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img28.jpg" alt="Imagen 28" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img29.jpg" alt="Imagen 29" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img30.jpg" alt="Imagen 30" class="imagen-galeria">
+            </div>
+
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img31.jpg" alt="Imagen 31" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img32.jpg" alt="Imagen 32" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img33.jpg" alt="Imagen 33" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img34.jpg" alt="Imagen 34" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img35.jpg" alt="Imagen 35" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img36.jpg" alt="Imagen 36" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img37.jpg" alt="Imagen 37" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img38.jpg" alt="Imagen 38" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img39.jpg" alt="Imagen 39" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img40.jpg" alt="Imagen 40" class="imagen-galeria">
+            </div>
+
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img41.jpg" alt="Imagen 41" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img42.jpg" alt="Imagen 42" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img43.jpg" alt="Imagen 43" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img44.jpg" alt="Imagen 44" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img45.jpg" alt="Imagen 45" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img46.jpg" alt="Imagen 46" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img47.jpg" alt="Imagen 47" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img48.jpg" alt="Imagen 48" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img49.jpg" alt="Imagen 49" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img50.jpg" alt="Imagen 50" class="imagen-galeria">
+            </div>
+
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img51.jpg" alt="Imagen 51" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img52.jpg" alt="Imagen 52" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img53.jpg" alt="Imagen 53" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img54.jpg" alt="Imagen 54" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img55.jpg" alt="Imagen 55" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img56.jpg" alt="Imagen 56" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img57.jpg" alt="Imagen 57" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img58.jpg" alt="Imagen 58" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img59.jpg" alt="Imagen 59" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img60.jpg" alt="Imagen 60" class="imagen-galeria">
+            </div>
+
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img61.jpg" alt="Imagen 61" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img62.jpg" alt="Imagen 62" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img63.jpg" alt="Imagen 63" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img64.jpg" alt="Imagen 64" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img65.jpg" alt="Imagen 65" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img66.jpg" alt="Imagen 66" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img67.jpg" alt="Imagen 67" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img68.jpg" alt="Imagen 68" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img69.jpg" alt="Imagen 69" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img70.jpg" alt="Imagen 70" class="imagen-galeria">
+            </div>
+
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img71.jpg" alt="Imagen 71" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img72.jpg" alt="Imagen 72" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img73.jpg" alt="Imagen 73" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img74.jpg" alt="Imagen 74" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img75.jpg" alt="Imagen 75" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img76.jpg" alt="Imagen 76" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img77.jpg" alt="Imagen 77" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img78.jpg" alt="Imagen 78" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img79.jpg" alt="Imagen 79" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img80.jpg" alt="Imagen 80" class="imagen-galeria">
+            </div>
+
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img81.jpg" alt="Imagen 81" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img82.jpg" alt="Imagen 82" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img83.jpg" alt="Imagen 83" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img84.jpg" alt="Imagen 84" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img85.jpg" alt="Imagen 85" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img86.jpg" alt="Imagen 86" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img87.jpg" alt="Imagen 87" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img88.jpg" alt="Imagen 88" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img89.jpg" alt="Imagen 89" class="imagen-galeria">
+            </div>
+            <div class="imagen-contenido">
+                <img src="IMG/imagenes_nuevo-contenido/img90.jpeg" alt="Imagen 90" class="imagen-galeria">
+            </div>
+
+
         </section>
     </main>
-<a href="#boton-inicio" class="btn-flotante" aria-label="Volver al inicio">
-    <i class="fas fa-arrow-up"></i>  <!-- Icono de flecha arriba -->
-</a>
-    <!-- Modal para mostrar imagen y recomendaciones -->
-    <div id="modal" class="modal">
-        <span class="cerrar-modal" aria-label="Cerrar ventana de modal">&times;</span>
-        <div class="modal-contenido">
-            <figure class="imagen-principal">
-                <img id="imagen-ampliada" src="" alt="Imagen ampliada">
-            </figure>
-            <div class="info-recomendaciones">
-                <section class="informacion-imagen">
-                    <h3 id="titulo-imagen">Título de la imagen</h3>
-                    <div class="detalles-imagen">
-                        <p><strong>Artista:</strong> <span id="artista-imagen">Nombre del artista</span></p>
-                        <p><strong>Categoría:</strong> <span id="categoria-imagen">Categoría</span></p>
-                        <p><strong>Publicado:</strong> <span id="fecha-imagen">Fecha de publicación</span></p>
-                    </div>
-                    <div class="botones-accion">
-                        <button id="btn-me-gusta" class="boton-accion boton-like" aria-label="Boton de Me gusta">
-                            <i class="far fa-heart"></i> Me gusta
-                        </button>
-                        <button id="btn-compartir" class="boton-accion boton-compartir" aria-label="Botón de compartir">
-                            <i class="fas fa-share-alt"></i> Compartir
-                        </button>
-                        <button id="btn-descargar" class="boton-accion boton-descargar" aria-label="Botón de descargas">
-                            <i class="fas fa-download"></i> Descargar
-                        </button>
-                    </div>
-                </section>
+    
+    <a href="#boton-inicio" class="boton-flotante" aria-label="Volver al inicio">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+        <!-- Modal principal -->
+        <div id="modal" class="modal" role="dialog">
+            <span class="cerrar-modal" aria-label="Cerrar ventana de modal">&times;</span>
+            <div class="modal-contenido">
+                <figure class="imagen-principal">
+                    <img id="imagen-ampliada" src="" alt="Imagen ampliada">
+                </figure>
+                <div class="info-recomendaciones">
+                    <section class="informacion-imagen" aria-label="Datos y opciones con la imagen">
+                        <h3 id="titulo-imagen" aria-label="título de la imagen">Título de la imagen</h3>
+                        <div class="detalles-imagen">
+                            <p><strong>Artista:</strong> <span id="artista-imagen">Nombre del artista</span></p>
+                            <p><strong>Categoría:</strong> <span id="categoria-imagen">Categoría</span></p>
+                            <p><strong>Publicado:</strong> <span id="fecha-imagen">Fecha de publicación</span></p>
+                        </div>
+                        <div class="botones-accion">
+                            <button id="boton-me-gusta" class="boton-accion boton-like" aria-label="Botón de Me gusta">
+                                <i class="far fa-heart"></i> Me gusta
+                            </button>
+                            <button id="boton-compartir" class="boton-accion boton-compartir" aria-label="Botón de compartir">
+                                <i class="fas fa-share-alt"></i> Compartir
+                            </button>
+                            <button id="boton-descargar" class="boton-accion boton-descargar" aria-label="Botón de descargas">
+                                <i class="fas fa-download"></i> Descargar
+                            </button>
+                        </div>
+                    </section>
 
-                <!-- Recomendaciones -->
-                <section class="recomendaciones" aria-label="Imágenes recomendadas">
-                    <h3>Imágenes Recomendadas</h3>
-                    <div class="recomendaciones-grid" id="recomendaciones-grid">
-                        <!-- Imágenes recomendadas  -->
+                    <!-- Sección de recomendaciones -->
+                    <section class="recomendaciones" aria-label="Imágenes recomendadas">
+                        <h3 class="titulo-recomendaciones">Imágenes Recomendadas</h3>
+                        <div class="recomendaciones-grid" id="recomendaciones-grid">
+                            <!-- Imágenes recomendadas se cargarán aquí dinámicamente -->
+                        </div>
+                        <button class="ver-mas-boton" id="ver-mas-boton">
+                            <a href="ver_mas_simulacion.html" target="_blank" class="ver" aria-label="Página para ver mas imágenes">Ver más</a>
+                        </button>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal "Ver más" -->
+        <div id="modal-ver-mas" class="modal modal-ver-mas" role="dialog">
+            <span class="cerrar-modal cerrar-modal-ver-mas" aria-label="Cerrar ventana">&times;</span>
+            <div class="modal-contenido modal-contenido-ver-mas">
+                <section class="recomendaciones-completas" aria-label="Más imágenes recomendadas">
+                    <h2>Más Imágenes Recomendadas</h2>
+                    <div class="recomendaciones-grid-ver-mas" id="recomendaciones-grid-ver-mas">
+                        <!-- Más imágenes recomendadas -->
                     </div>
                 </section>
             </div>
         </div>
-    </div>
 
     <!-- Página de descarga -->
     <section id="pagina-descarga" class="pagina-descarga">
@@ -175,15 +439,19 @@
             <h2>Descargar Imagen en Alta Calidad</h2>
             <img id="imagen-hd" src="" alt="Imagen en alta calidad" class="imagen-hd">
             <div class="botones-descarga">
-                <button id="btn-descarga-directa" class="boton-descarga-hd">
+                <button id="boton-descarga-directa" class="boton-descarga-hd">
                     <i class="fas fa-download"></i>
                     Descargar Imagen HD
+                </button>
+                <button id="boton-volver" class="boton-volver">
+                    <i class="fas fa-arrow-left"></i>
+                    Volver
                 </button>
             </div>
             <p aria-label="Información de la imagen">Esta imagen tiene una resolución de 4000x3000 px y un tamaño de archivo de 8.2 MB</p>
         </article>
     </section>
     
-    <script src="script.js"></script>
+    <script src="/JS/script_ver_mas.js"></script>
 </body>
 </html>
