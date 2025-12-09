@@ -25,13 +25,68 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const likesEstado = {};
     
-    // ===== BÚSQUEDA =====
-    function buscar() {
-        const texto = inputBuscar.value.trim(); /*  Obtiene el texto de un input - Elimina espacios al inicio y final. */
-        if (texto) {
-            alert(`Estás buscando: "${texto}"`);
+// ===== BÚSQUEDA =====
+function buscar() {
+    const texto = inputBuscar.value.trim().toLowerCase();
+    
+    // Si está vacío, no hacer nada
+    if (!texto) return;
+    
+    // Mapa de búsquedas (más eficiente y organizado)
+    const busquedas = {
+        // Categorías principales
+        'naturaleza': 'Naturaleza.html',
+        'anime': 'Anime.html',
+        'fotografia': 'Fotografia.html',
+        'fotografía': 'Fotografia.html',
+        'photo': 'Fotografia.html',
+        
+        // CGI/3D con múltiples variantes
+        'cgi-3d': 'CGI-3D.html',
+        'cgi3d': 'CGI-3D.html',
+        'cgi': 'CGI-3D.html',
+        '3d': 'CGI-3D.html',
+        '3-d': 'CGI-3D.html',
+        
+        // Pixel Art
+        'pixel-art': 'Pixel-Art.html',
+        'pixelart': 'Pixel-Art.html',
+        'pixel': 'Pixel-Art.html',
+        
+        // Páginas del sitio
+        'sobre_nosotros': 'Sobre_nosotros.html',
+        'sobre nosotros': 'Sobre_nosotros.html',
+        'nosotros': 'Sobre_nosotros.html',
+        'acerca de': 'Sobre_nosotros.html',
+        
+        'nuevo-contenido': 'nuevo-contenido.html',
+        'nuevo contenido': 'nuevo-contenido.html',
+        'nuevo': 'nuevo-contenido.html',
+        'reciente': 'nuevo-contenido.html',
+        
+        // Página principal
+        'inicio': 'index.html',
+        'home': 'index.html',
+        'index': 'index.html',
+        'principal': 'index.html',
+    };
+    
+    // Buscar en el mapa
+    if (busquedas[texto]) {
+        window.open(busquedas[texto], '_blank');
+    } else {
+        // Si no encuentra coincidencia exacta, buscar coincidencias parciales
+        for (const [keyword, url] of Object.entries(busquedas)) {
+            if (texto.includes(keyword) || keyword.includes(texto)) {
+                window.open(url, '_blank');
+                return;
+            }
         }
+        
+        // Si no encuentra nada, mostrar mensaje
+        alert(`Usted buscó "${texto}".`);
     }
+}
     
     inputBuscar.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') buscar();

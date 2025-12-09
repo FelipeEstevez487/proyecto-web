@@ -39,7 +39,11 @@ h1 {
 .contenedor {
     width: 100%;
     display: flex;
+    position: sticky;
+    top: 0;
     flex-direction: column;
+    background-color: white;
+    z-index: 2000;
 }
 
 .contenedor__header {
@@ -153,6 +157,36 @@ h1 {
     width: auto;
 }
 
+/* Submenú desplegable */
+.menu-desplegable {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    border-radius: 8px;
+    min-width: 100%;
+    overflow: hidden;
+}
+
+/* Mostrar menú desplegable */
+.Hamburguesa:hover .menu-desplegable,
+.nav__item--desplegable:hover .menu-desplegable {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+li.nav__item--desplegable {
+    padding: 0;
+    height: 50px;
+}
+
 .nav__lista li.nav__item--desplegable {
     padding: 0;
     height: 50px;
@@ -165,7 +199,7 @@ h1 {
     height: 100%;
     width: 100%;
     padding: 0.6rem 1.8rem;
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas. Todo el contenido se mantiene en una sola línea, aunque se salga del contenedor. */
+    white-space: nowrap;
     cursor: pointer;
 }
 
@@ -173,34 +207,17 @@ h1 {
     border-radius: 100px;
 }
 
-/* Submenú desplegable */
-.menu-desplegable {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    margin-top: 5px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-}
-
+/* Estructura del menú desplegable */
 .menu-desplegable ul {
     list-style: none;
     margin: 0;
     padding: 0.5rem 0;
+    width: 100%;
 }
 
-/* Checkbox oculto para controlar el despliegue */
+/* Ocultar el checkbox - controlamos todo con hover */
 #menu-opciones {
     display: none;
-}
-
-#menu-opciones:checked ~ .menu-desplegable {
-    display: block;
 }
 
 .menu-desplegable ul li {
@@ -210,20 +227,25 @@ h1 {
     border-bottom: 1px solid #eee;
     background-color: white;
     height: auto;
+    transition: background-color 0.2s ease;
+}
+
+.menu-desplegable ul li:last-child {
+    border-bottom: none;
 }
 
 .menu-desplegable ul li:hover {
-    background-color: #aea9a7;
-    border-radius: 0px;
+    background-color: #f0f0f0;
 }
 
 .menu-desplegable ul li a {
     color: black;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 12px 20px;
     display: block;
     font-size: 1.3rem;
     font-family: var(--Fuente-menu);
+    transition: color 0.2s ease;
 }
 
 /* BUSCADOR */
@@ -235,6 +257,7 @@ h1 {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    position: relative;
 }
 
 .buscador-input {
@@ -243,7 +266,7 @@ h1 {
     border: 2px solid #e1e1e1;
     border-radius: 24px;
     font-size: 14px;
-    outline: none; /* quita linea buscador */
+    outline: none;
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     background: white;
@@ -263,7 +286,7 @@ h1 {
     align-items: center;
     justify-content: center;
     position: absolute;
-    right: 20px;
+    right: 25px;
     border-radius: 50%;
     transition: background-color 0.3s ease;
 }
@@ -275,7 +298,7 @@ h1 {
     fill: #555;
 }
 
-/*s BOTÓN DE MENÚ HAMBURGUESA (PARA MÓVIL) */
+/* BOTÓN DE MENÚ HAMBURGUESA (PARA MÓVIL) */
 .menu-toggle {
     display: none;
 }
@@ -298,21 +321,27 @@ h1 {
     height: 4px;
     background-color: #333;
     border-radius: 3px;
-    transition: 0.3s;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
+.hamburger-line:hover{
+    background-color: red;
+    transform: scale(1.01);
+}
+
 
 /* GALERÍA DE IMÁGENES */
 .galeria {
-    columns: 5 250px; /* Propiedad de CSS Multi-column Layout que crea un diseño de columnas estilo revista/periódico. */
+    columns: 5 250px;
     column-gap: 1rem;
     padding: 1rem;
 }
 
 .imagen-contenido {
-    break-inside: avoid; /* Evita que un elemento se rompa / seguro */
+    break-inside: avoid;
     margin-bottom: 1rem;
     border-radius: 8px;
-    overflow: hidden; /* cuando salga de lo límites */
+    overflow: hidden;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
     cursor: pointer;
@@ -354,21 +383,21 @@ h1 {
 
 .boton-flotante:hover {
     background-color: black;
-    transform: scale(1.0);
-    box-shadow: 0 6px 7px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/*  MODAL PRINCIPAL (PARA VER IMÁGENES AMPLIADAS)  */
+/* MODAL PRINCIPAL (PARA VER IMÁGENES AMPLIADAS) */
 .modal {
     display: none;
-    position: fixed; /* ancla */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.95);
-    z-index: 1000;
-    overflow: auto; /* Barras de desplazamiento */
+    z-index: 3000;
+    overflow: auto;
     padding: 10px;
 }
 
@@ -398,7 +427,7 @@ h1 {
 .imagen-principal img {
     max-width: 100%;
     max-height: 80vh;
-    object-fit: contain; /* Ajusta una imagen dentro de su contenedor sin deformarse. */
+    object-fit: contain;
     border-radius: 8px;
     width: auto;
     height: auto;
@@ -412,7 +441,7 @@ h1 {
     padding: 20px;
     border-left: 1px solid #e0e0e0;
     max-height: 80vh;
-    overflow-y: auto; /* scroll vertical */
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
 }
@@ -464,6 +493,7 @@ h1 {
     background-color: #861609;
     color: white;
 }
+
 .boton-like:hover {
     background-color: #8615099a;
 }
@@ -476,6 +506,7 @@ h1 {
     background-color: #057ecf;
     color: white;
 }
+
 .boton-compartir:hover {
     background-color: #057ecf94;
     color: white;
@@ -485,6 +516,7 @@ h1 {
     background-color: #12b154;
     color: white;
 }
+
 .boton-descargar:hover {
     background-color: #12b154a4;
     color: white;
@@ -530,36 +562,45 @@ h1 {
     font-weight: bold;
     cursor: pointer;
     z-index: 1001;
-    text-shadow: /* Contorno */
-        2px 0 0 black,  /* der */
-        -2px 0 0 black, /* iz */
-        0 2px 0 black,  /* ab */
-        0 -2px 0 black; /* ar */
+    text-shadow: 
+        2px 0 0 black,
+        -2px 0 0 black,
+        0 2px 0 black,
+        0 -2px 0 black;
 }
 
 /* Botón "Ver más" en el modal */
 .ver-mas-boton {
-    display: block;
+    display: flex; /* Cambia a flex */
+    align-items: center;
+    justify-content: center;
     margin: 15px auto 0;
-    padding: 10px 25px;
+    padding: 0; /* Sin padding */
     background-color: #dd1b1b;
-    color: white;
     border: none;
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: var(--Fuente-Botones);
-}
-
-.ver-mas-boton:hover {
-    background-color: rgba(203, 36, 36, 0.937);
-    transform: scale(1.05);
+    min-width: 120px;
+    min-height: 40px; /* Altura mínima */
 }
 
 .ver {
+    display: block;
     text-decoration: none;
     color: white;
+    padding: 10px 25px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ver-mas-boton:hover {
+    background-color: rgba(203, 36, 36, 0.937);
+    transform: scale(1.05);
 }
 
 /* ===== MODAL "VER MÁS" (PARA MÁS RECOMENDACIONES) ===== */
@@ -583,7 +624,7 @@ h1 {
 
 .recomendaciones-grid-ver-mas {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Crea un grid responsivo y automático que se adapta al ancho disponible */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
     padding: 10px;
 }
@@ -668,6 +709,7 @@ h1 {
     align-items: center;
     gap: 8px;
 }
+
 .boton-descarga-hd:hover {
     background-color: #12b154a4;
 }
@@ -685,6 +727,7 @@ h1 {
     gap: 8px;
     margin-left: 10px;
 }
+
 .boton-volver:hover {
     background-color: #5a6268;
 }
@@ -736,6 +779,7 @@ h1 {
     .nav__item--desplegable .opciones {
         padding: 0.5rem 1.5rem;
     }
+
 }
 
 /* Pantallas pequeñas (hasta 825px) */
@@ -750,7 +794,7 @@ h1 {
         padding: 12px 20px;
         border-radius: 12px;
         width: auto;
-        flex-shrink: 0; /* Evita que un elemento flexible se encoja cuando falta espacio. */
+        flex-shrink: 0;
     }
     
     .hamburger-button {
@@ -823,19 +867,27 @@ h1 {
         padding: 0.75rem 1rem;
     }
     
+    /* Para móvil, mostramos el menú desplegable con checkbox */
     .menu-desplegable {
         position: static;
         box-shadow: none;
         width: 100%;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
         display: none;
         background: #f9f9f9;
         border: none;
         margin-top: 0;
         border-radius: 8px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
     }
     
     #menu-opciones:checked ~ .menu-desplegable {
         display: block;
+        max-height: 500px;
     }
     
     .menu-desplegable__opciones {
@@ -1018,6 +1070,11 @@ h1 {
     .recomendaciones-grid-ver-mas .recomendacion img {
         height: 200px;
     }
+    
+    .menu-desplegable ul li a {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
 }
 
 /* Ajustes para el botón flotante en móvil */
@@ -1027,6 +1084,8 @@ h1 {
         height: 50px;
         padding: 0;
         border-radius: 50%;
+        right: 20px;
+        bottom: 20px;
     }
 }
 
@@ -1089,6 +1148,14 @@ h1 {
         min-width: 90px;
         font-size: 0.8rem;
     }
+    
+    .contenedor__titulo {
+        font-size: 1.5rem;
+    }
+    
+    .contenedor__icono {
+        height: 40px;
+    }
 }
 
 /* Ajustes para escritorio (mayor a 825px) */
@@ -1108,6 +1175,11 @@ h1 {
     .ver-mas-boton {
         margin-top: 20px;
     }
+    
+    /* Para escritorio, ocultamos el comportamiento de checkbox del menú desplegable */
+    #menu-opciones:checked ~ .menu-desplegable {
+        display: block;
+    }
 }
 
 /* Tablet horizontal (825px - 1200px) */
@@ -1125,6 +1197,6 @@ h1 {
 /* Ajuste de fuente en tablets (hasta 1050px) */
 @media (max-width: 1050px) {
     .menu-desplegable ul li a {
-        font-size: 1.0rem;
+        font-size: 1rem;
     }
 }
