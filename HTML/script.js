@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputBuscar = document.getElementById('buscadorInput');
     const botonBuscar = document.getElementById('buscadorButton');
     
-    // ===== BASE DE DATOS =====
+    // BASE DE DATOS
     // Objeto que almacena información detallada de cada imagen (solo muestra una como ejemplo)
     const infoImagenes = {
         "IMG/imagenes/1.jpg": {
@@ -33,14 +33,67 @@ document.addEventListener('DOMContentLoaded', function() {
     const likesEstado = {};
     
     // BÚSQUEDA 
-    // Función que maneja la búsqueda (actualmente solo muestra un alert con el texto)
-    function buscar() {
-        // Elimina espacios en blanco al inicio y final del texto
-        const texto = inputBuscar.value.trim();
-        if (texto) {
-            alert(`Estás buscando: "${texto}"`);
+function buscar() {
+    const texto = inputBuscar.value.trim().toLowerCase();
+    
+    // Si está vacío, no hacer nada
+    if (!texto) return;
+    
+    // Mapa de búsquedas (más eficiente y organizado)
+    const busquedas = {
+        // Categorías principales
+        'naturaleza': 'Naturaleza.html',
+        'anime': 'Anime.html',
+        'fotografia': 'Fotografia.html',
+        'fotografía': 'Fotografia.html',
+        'photo': 'Fotografia.html',
+        
+        // CGI/3D con múltiples variantes
+        'cgi-3d': 'CGI-3D.html',
+        'cgi3d': 'CGI-3D.html',
+        'cgi': 'CGI-3D.html',
+        '3d': 'CGI-3D.html',
+        '3-d': 'CGI-3D.html',
+        
+        // Pixel Art
+        'pixel-art': 'Pixel-Art.html',
+        'pixelart': 'Pixel-Art.html',
+        'pixel': 'Pixel-Art.html',
+        
+        // Páginas del sitio
+        'sobre_nosotros': 'Sobre_nosotros.html',
+        'sobre nosotros': 'Sobre_nosotros.html',
+        'nosotros': 'Sobre_nosotros.html',
+        'acerca de': 'Sobre_nosotros.html',
+        
+        'nuevo-contenido': 'nuevo-contenido.html',
+        'nuevo contenido': 'nuevo-contenido.html',
+        'nuevo': 'nuevo-contenido.html',
+        'reciente': 'nuevo-contenido.html',
+        
+        // Página principal
+        'inicio': 'index.html',
+        'home': 'index.html',
+        'index': 'index.html',
+        'principal': 'index.html',
+    };
+    
+    // Buscar en el mapa
+    if (busquedas[texto]) {
+        window.open(busquedas[texto], '_blank');
+    } else {
+        // Si no encuentra coincidencia exacta, buscar coincidencias parciales
+        for (const [keyword, url] of Object.entries(busquedas)) {
+            if (texto.includes(keyword) || keyword.includes(texto)) {
+                window.open(url, '_blank');
+                return;
+            }
         }
+        
+        // Si no encuentra nada, mostrar mensaje
+        alert(`Usted buscó "${texto}".`);
     }
+}
     
     // Ejecuta la búsqueda al presionar Enter en el input
     inputBuscar.addEventListener('keypress', function(e) {
@@ -123,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <html>
                 <head>
                     <title>Pictly</title>
-                    <link rel="icon" type="image/png" href="/IMG/icono/icono2.png">
+                    <link rel="icon" type="image/png" href="icono2.png">
                     <style>
                         body {
                             font-family: Arial, sans-serif;
@@ -200,7 +253,99 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ===== FUNCIÓN PARA ABRIR MODAL =====
-    function abrirModal(src) {
+    function abrirModal(src) {document.getElementById('boton-descargar').addEventListener('click', function() {
+    const src = imagenAmpliada.getAttribute('src');
+    const info = infoImagenes[src] || {};
+    const hdSrc = info.hdUrl || src; /* Obtiene la versión HD de la imagen si existe en info.hdUrl. Si no, usa la imagen normal (src). */
+    
+    const rutaFija = 'IMG/imagen_prueba.png';
+
+    const nuevaPestana = window.open('', '_blank');
+
+    nuevaPestana.document.write(` 
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <title>Pictly</title>
+                <link rel="icon" type="image/png" href="icono2.png">
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        text-align: center;
+                        padding: 40px;
+                        background-color: #f5f5f5;
+                    }
+                    .contenedor-descarga {
+                        max-width: 800px;
+                        margin: 0 auto;
+                        background: white;
+                        padding: 30px;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                    }
+                    .imagen-hd {
+                        max-width: 100%;
+                        max-height: 70vh;
+                        margin: 20px 0;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                    }
+                    .boton-descarga-hd {
+                        padding: 15px 30px;
+                        background-color: #2ecc71;
+                        color: white;
+                        border: none;
+                        border-radius: 5px;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                        margin: 20px 0;
+                        transition: background-color 0.2s;
+                    }
+                    .boton-descarga-hd:hover {
+                        background-color: #27ae60;
+                    }
+                    .info-descarga {
+                        margin: 20px 0;
+                        color: #555;
+                    }
+                </style>
+            </head>
+        <body>
+            <div class="contenedor-descarga">
+                <h2>Descargar Imagen en Alta Calidad</h2>
+                <div class="info-descarga">
+                    <p><strong>${info.titulo || "Imagen sin título"}</strong></p>
+                    <p>Artista: ${info.artista || "Desconocido"}</p>
+                </div>
+                <!-- Muestra la imagen HD -->
+                <img src="${hdSrc}" alt="Imagen en alta calidad" class="imagen-hd">
+                <div>
+                    <button onclick="descargarImagen()" class="boton-descarga-hd">
+                        Descargar Imagen HD (8.2 MB)
+                    </button>
+                </div>
+                <p>Esta imagen tiene una resolución de 4000x3000 px</p>
+                <p>Formato: JPG | Calidad: 100%</p>
+                <script>
+                    // Definir la ruta de descarga fija que se pasa desde la página principal
+                    const rutaDescarga = '${rutaFija}';
+                    
+                    function descargarImagen() {
+                        const link = document.createElement('a');
+                        link.href = rutaDescarga;
+                        link.download = 'pictly-imagen.jpg';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
+                <\/script>
+            </div>
+        </body>
+        </html>
+    `);
+    nuevaPestana.document.close();
+});
+
         // Obtiene la información de la imagen, o valores por defecto si no existe
         const info = infoImagenes[src] || {
             titulo: "Imagen sin título",
@@ -275,7 +420,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ===== MENÚ HAMBURGUESA SIMPLIFICADO =====
+    // MENÚ HAMBURGUESA SIMPLIFICADO
     // Solo para cerrar el menú en móvil al hacer clic en enlaces
     const menuTogglePrincipal = document.getElementById('menu-toggle');
     

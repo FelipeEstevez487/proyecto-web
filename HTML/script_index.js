@@ -18,14 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
             categoria: "Paisajes",
             fecha: "15 Marzo 2023",
             likes: 0,
-            hdUrl: "IMG/imagenes-hd/1.jpg"
+            hdUrl: "IMG/imagenes/1.jpg"
         },
         //  ... resto de imágenes que no pondré porque no es necesario...
     };
     
     const likesEstado = {};
     
-// ===== BÚSQUEDA =====
+// BÚSQUEDA 
 function buscar() {
     const texto = inputBuscar.value.trim().toLowerCase();
     
@@ -134,96 +134,101 @@ function buscar() {
         alert('Hiciste click en compartir');
     });
     
-    //  BOTÓN DESCARGAR 
-    document.getElementById('boton-descargar').addEventListener('click', function() {
-        const src = imagenAmpliada.getAttribute('src');
-        const info = infoImagenes[src] || {};
-        const hdSrc = info.hdUrl || src; /* Obtiene la versión HD de la imagen si existe en info.hdUrl. Si no, usa la imagen normal (src). */
-        
-        const nuevaPestana = window.open('', '_blank'); /* Abre una nueva pestaña en el navegador y la guarda en la variable nuevaPestana para manipularla después. */
-
-        nuevaPestana.document.write(` 
-            <!DOCTYPE html>
-            <html>
-                <head>
-                    <title>Pictly</title>
-                    <link rel="icon" type="image/png" href="/IMG/icono/icono2.png">
-                    <style>
-                        body {
-                            font-family: Arial, sans-serif;
-                            text-align: center;
-                            padding: 40px;
-                            background-color: #f5f5f5;
-                        }
-                        .contenedor-descarga {
-                            max-width: 800px;
-                            margin: 0 auto;
-                            background: white;
-                            padding: 30px;
-                            border-radius: 10px;
-                            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-                        }
-                        .imagen-hd {
-                            max-width: 100%;
-                            max-height: 70vh;
-                            margin: 20px 0;
-                            border-radius: 8px;
-                            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                        }
-                        .boton-descarga-hd {
-                            padding: 15px 30px;
-                            background-color: #2ecc71;
-                            color: white;
-                            border: none;
-                            border-radius: 5px;
-                            font-size: 1.2rem;
-                            cursor: pointer;
-                            margin: 20px 0;
-                            transition: background-color 0.2s;
-                        }
-                        .boton-descarga-hd:hover {
-                            background-color: #27ae60;
-                        }
-                        .info-descarga {
-                            margin: 20px 0;
-                            color: #555;
-                        }
-                    </style>
-                </head>
-            <body>
-                <div class="contenedor-descarga">
-                    <h2>Descargar Imagen en Alta Calidad</h2>
-                    <div class="info-descarga">
-                        <p><strong>${info.titulo || "Imagen sin título"}</strong></p>
-                        <p>Artista: ${info.artista || "Desconocido"}</p>
-                    </div>
-                    <img src="${hdSrc}" alt="Imagen en alta calidad" class="imagen-hd">
-                    <div>
-                        <button onclick="descargarImagen()" class="boton-descarga-hd">
-                            Descargar Imagen HD (8.2 MB)
-                        </button>
-                    </div>
-                    <p>Esta imagen tiene una resolución de 4000x3000 px</p>
-                    <p>Formato: JPG | Calidad: 100%</p>
-                    <script>
-                        function descargarImagen() {
-                            const link = document.createElement('a');
-                            link.href = '${hdSrc}';
-                            link.download = 'pictly-${(info.titulo || "imagen").replace(/\\s+/g, "-").toLowerCase()}.jpg';
-                            /* Crea un enlace invisible en la página, lo añade al documento, y simula un clic en él para forzar la descarga del archivo sin mostrar el enlace al usuario. */
-                            document.body.appendChild(link);
-                            link.click();
-                            document.body.removeChild(link);
-                        }
-                    <\/script>
-                </div>
-            </body>
-            </html>
-        `);
-        nuevaPestana.document.close();
-    });
+// ===== BOTÓN DESCARGAR =====
+document.getElementById('boton-descargar').addEventListener('click', function() {
+    const src = imagenAmpliada.getAttribute('src');
+    const info = infoImagenes[src] || {};
+    const hdSrc = info.hdUrl || src; /* Obtiene la versión HD de la imagen si existe en info.hdUrl. Si no, usa la imagen normal (src). */
     
-    //s FUNCIÓN PARA ABRIR MODAL 
+    const rutaFija = 'IMG/imagen_prueba.png';
+
+    const nuevaPestana = window.open('', '_blank');
+
+    nuevaPestana.document.write(` 
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <title>Pictly</title>
+                <link rel="icon" type="image/png" href="icono2.png">
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        text-align: center;
+                        padding: 40px;
+                        background-color: #f5f5f5;
+                    }
+                    .contenedor-descarga {
+                        max-width: 800px;
+                        margin: 0 auto;
+                        background: white;
+                        padding: 30px;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                    }
+                    .imagen-hd {
+                        max-width: 100%;
+                        max-height: 70vh;
+                        margin: 20px 0;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                    }
+                    .boton-descarga-hd {
+                        padding: 15px 30px;
+                        background-color: #2ecc71;
+                        color: white;
+                        border: none;
+                        border-radius: 5px;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                        margin: 20px 0;
+                        transition: background-color 0.2s;
+                    }
+                    .boton-descarga-hd:hover {
+                        background-color: #27ae60;
+                    }
+                    .info-descarga {
+                        margin: 20px 0;
+                        color: #555;
+                    }
+                </style>
+            </head>
+        <body>
+            <div class="contenedor-descarga">
+                <h2>Descargar Imagen en Alta Calidad</h2>
+                <div class="info-descarga">
+                    <p><strong>${info.titulo || "Imagen sin título"}</strong></p>
+                    <p>Artista: ${info.artista || "Desconocido"}</p>
+                </div>
+                <!-- Muestra la imagen HD -->
+                <img src="${hdSrc}" alt="Imagen en alta calidad" class="imagen-hd">
+                <div>
+                    <button onclick="descargarImagen()" class="boton-descarga-hd">
+                        Descargar Imagen HD (8.2 MB)
+                    </button>
+                </div>
+                <p>Esta imagen tiene una resolución de 4000x3000 px</p>
+                <p>Formato: JPG | Calidad: 100%</p>
+                <script>
+                    // Definir la ruta de descarga fija que se pasa desde la página principal
+                    const rutaDescarga = '${hdSrc}';
+                    
+                    function descargarImagen() {
+                        const link = document.createElement('a');
+                        link.href = rutaDescarga;
+                        link.download = 'pictly-imagen.jpg';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
+                <\/script>
+            </div>
+        </body>
+        </html>
+    `);
+    nuevaPestana.document.close();
+});
+
+    // FUNCIÓN PARA ABRIR MODAL 
     function abrirModal(src) {
         const info = infoImagenes[src] || {
             titulo: "Imagen sin título",
